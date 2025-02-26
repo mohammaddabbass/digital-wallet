@@ -27,7 +27,5 @@
 .light{
     background-color: var(--background-light);
 }
-body{
-    /* background-color: var(--primary-color); */
-    min-height: 300vh;
-}
+
+

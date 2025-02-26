@@ -13,3 +13,5 @@ window.addEventListener("scroll", () => {
 
 
 // alert("hello from the js file")
+
+// login animation

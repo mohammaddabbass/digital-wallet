@@ -1,8 +1,36 @@
-.login {
-    width: 100vw;
-    height: 100vh;
-    border-radius: 100% 0% 0% 100% / 0% 50% 50% 100% ;
-    background-color: var(--secondary-color);
-    right: 0;
-    top: 0;
+
+.login-page{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
+
+.login {
+    clip-path: ellipse(36% 70% at 98% 50%);
+    background-color: var(--primary-color);
+    height: 100%;
+    width: 100%;
+    animation: slideFromRight 0.8s ease-in-out;
+    
+}
+
+.login-svg {
+    height: 25rem;
+    width: 25rem;
+    position: absolute;
+    right: 6rem;
+    top: 10rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.register-svg {
+    display: none;
+    height: 25rem;
+    width: 25rem;
+    position: absolute;
+    left: 6rem;
+    top: 10rem;
+    animation: float 3s ease-in-out infinite;
+}
+
