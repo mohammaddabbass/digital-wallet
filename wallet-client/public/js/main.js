@@ -34,25 +34,21 @@ navLinks.forEach(link => {
         navbar.classList.remove('active');
     });
 });
+
+
 // login animation
 
+function switchForm(mode) {
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const loginPage = document.querySelector('.login-page');
 
-function switchForm(formType) {
-    const loginForm = document.getElementById("loginForm");
-    const registerForm = document.getElementById("registerForm");
-
-    if (formType === 'register') {
-        loginForm.classList.add();
-        registerForm.classList.add();
+    if (mode === 'register') {
+        loginPage.classList.add('register-active'); // Move shape and switch forms
     } else {
-        loginForm.classList.remove();
-        registerForm.classList.remove();
+        loginPage.classList.remove('register-active'); // Reset to login mode
     }
 }
-
-
-
-
 // function switchForm(formType) {
 //     const loginForm = document.getElementById('loginForm');
 //     const registerForm = document.getElementById('registerForm');
