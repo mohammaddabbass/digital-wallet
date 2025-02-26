@@ -14,6 +14,26 @@ window.addEventListener("scroll", () => {
 
 // alert("hello from the js file")
 
+// mobile menu 
+const burgerMenu = document.querySelector('.burger-menu');
+const navbar = document.querySelector('.navbar');
+const navLinks = document.querySelectorAll('.nav-ul li a');
+
+burgerMenu.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+});
+
+document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target) && !burgerMenu.contains(e.target)) {
+      navbar.classList.remove('active');
+    }
+  });
+
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navbar.classList.remove('active');
+    });
+});
 // login animation
 
 
