@@ -1,18 +1,20 @@
 :root {
-    --primary-color: #1a73e869;
+    --primary-color: #1a73e8;
     --secondary-color: #ff6b6b;
-    --background-light: #c2c2c2;
+    --background-light: #ebebeb;
     --background-dark: #1a1a1a;
     --text-light: #2b2b2c;
-    --text-dark: #e5e7eb;  
+    --text-dark: #e5e7eb;   
     --success-color: #10b981;    
     --error-color: #ef4444; 
     --warning-color: #f59e0b;
 
     --font-primary: 'Inter', sans-serif;
 
-    --glass-bg: rgba(255, 255, 255, 0.2);
-    --glass-border: rgba(255, 255, 255, 0.3);
+    --glass-bg: #1a73e868;
+    --glass-border: rgba(255, 255, 255, 0.225);
     --glass-blur: blur(10px);
     --glass-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+
+    --border-radius: 14px;
+}   
