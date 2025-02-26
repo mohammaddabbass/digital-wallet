@@ -1,0 +1,22 @@
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    background: radial-gradient(circle at 80% 50%, 
+      var(--glass-primary) 0%, 
+      var(--background-dark) 30%
+    );
+  }
+  
+  .floating-coins {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  .wallet-scene:hover .shield-effect {
+    filter: drop-shadow(0 0 12px var(--accent-blue));
+  }
