@@ -1,8 +1,10 @@
 @import 'base/variables.css';
 @import 'base/reset.css';
+@import 'base/utilities.css';
 @import 'components/buttons.css';
 @import 'components/header.css';
 @import 'components/cards.css';
+@import 'components/footer.css';
 @import 'pages/login.css';
 @import 'pages/home.css';
 @import 'base/animations.css';
@@ -27,7 +29,5 @@
 .light{
     background-color: var(--background-light);
 }
-body{
-    /* background-color: var(--primary-color); */
-    min-height: 300vh;
-}
+
+
