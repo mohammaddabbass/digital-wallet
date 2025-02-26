@@ -1,0 +1,19 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.glass-card {
+    width: 90%;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    background: var(--glass-bg); 
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-bg);
+    box-shadow: var(--glass-shadow);
+    text-align: center;
+    color: var(--background-dark);
+}
