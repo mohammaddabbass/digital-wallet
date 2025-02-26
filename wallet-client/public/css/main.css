@@ -5,6 +5,8 @@
 @import 'components/cards.css';
 @import 'pages/login.css';
 @import 'pages/home.css';
+@import 'base/animations.css';
+
 .primary, .secondary, .dark, .light {
     width: 300px;
     height: 300px;
