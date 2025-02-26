@@ -5,23 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/main.css">
     <title>Login</title>
-
 </head>
 <body>
-    <section class="login-page">
+    <section class="login-page flex">
         <div class="login-design">
             <img class="login-svg" src="/public/images/icons//undraw_login_wqkt.svg" alt="">
-
             <img class="register-svg" src="/public/images/icons/undraw_access-account_aydp.svg" alt="">
         </div>
 
-        <div class="login-action">
-            <form action="" class="login-form">
+        <div class="login-action flex column">
+            <h2 id="formTitle">Welcome Back!</h2>
 
+            <!-- login -->
+            <form id="loginForm" action="" class="login-form">
+                <div class="form-group flex column">
+                    <label for="username">Username</label>
+                    <input id="username" name="username" type="text">
+                </div>
+                <div class="form-group flex column">
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password">
+                </div>
+                <button type="submit">Login</button>
+                <p>Don't have an account? <a href="#" id="showRegister">Register</a></p>
+            </form>
+
+            <!-- register -->
+            <form id="registerForm" action="" class="register-form" style="display: none;">
+                <div class="form-group flex column">
+                    <label for="reg-username">Username</label>
+                    <input id="reg-username" name="reg-username" type="text">
+                </div>
+                <div class="form-group flex column">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email">
+                </div>
+                <div class="form-group flex column">
+                    <label for="reg-password">Password</label>
+                    <input id="reg-password" name="reg-password" type="password">
+                </div>
+                <button type="submit">Register</button>
+                <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
             </form>
         </div>
     </section>
-    
-    <script src="/public/js/main.js"></script>
+
 </body>
 </html>
