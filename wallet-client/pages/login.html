@@ -7,48 +7,51 @@
     <title>Login</title>
 </head>
 <body>
+    <h2 class="app-name">Web<span class="logo-span">Logo</span></h2>
     <section class="login-page flex">
         <div class="login-design">
-            <img class="login-svg" src="/public/images/icons//undraw_login_wqkt.svg" alt="">
-            <img class="register-svg" src="/public/images/icons/undraw_access-account_aydp.svg" alt="">
+            <img class="login-svg svgs" src="/public/images/icons//undraw_login_wqkt.svg" alt="">
+            <img class="register-svg svgs" src="/public/images/icons/undraw_access-account_aydp.svg" alt="">
         </div>
 
+        
         <div class="login-action flex column">
-            <h2 id="formTitle">Welcome Back!</h2>
+            <h2 id="formTitle">Welcome!</h2>
 
             <!-- login -->
-            <form id="loginForm" action="" class="login-form">
-                <div class="form-group flex column">
-                    <label for="username">Username</label>
-                    <input id="username" name="username" type="text">
+            <form id="loginForm" action="" class="login-form flex column forms" >
+                <div class="form-group flex align-items">
+                    <!-- <label for="username">Username</label> -->
+                    <input class="input-field" id="username" name="username" type="text" placeholder="username_123">
                 </div>
-                <div class="form-group flex column">
-                    <label for="password">Password</label>
-                    <input id="password" name="password" type="password">
+                <div class="form-group flex align-items">
+                    <!-- <label for="password">Password</label> -->
+                    <input class="input-field" id="password" name="password" type="password" placeholder="DHuhd8&%">
                 </div>
-                <button type="submit">Login</button>
-                <p>Don't have an account? <a href="#" id="showRegister">Register</a></p>
+                <button class="button secondary-btn" type="submit">Login</button>
+                <p>Don't have an account? <a onclick="switchForm('register')" href="#" id="showRegister">Register</a></p>
             </form>
 
             <!-- register -->
-            <form id="registerForm" action="" class="register-form" style="display: none;">
-                <div class="form-group flex column">
-                    <label for="reg-username">Username</label>
-                    <input id="reg-username" name="reg-username" type="text">
+            <form id="registerForm" action="" class="register-form flex column forms" >
+                <div class="form-group flex align-items">
+                    <!-- <label for="reg-username">Username</label> -->
+                    <input class="input-field" id="reg-username" name="reg-username" type="text" placeholder="username_123">
                 </div>
-                <div class="form-group flex column">
-                    <label for="email">Email</label>
-                    <input id="email" name="email" type="email">
+                <div class="form-group flex align-items">
+                    <!-- <label for="email">Email</label> -->
+                    <input class="input-field" id="email" name="email" type="email" placeholder="example@email.com">
                 </div>
-                <div class="form-group flex column">
-                    <label for="reg-password">Password</label>
-                    <input id="reg-password" name="reg-password" type="password">
+                <div class="form-group flex align-items">
+                    <!-- <label for="reg-password">Password</label> -->
+                    <input class="input-field" id="reg-password" name="reg-password" type="password" placeholder="DHuhd8&%">
                 </div>
-                <button type="submit">Register</button>
-                <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+                <button class="button secondary-btn" type="submit">Register</button>
+                <p>Already have an account? <a onclick="switchForm('login')" href="#" id="showLogin">Login</a></p>
             </form>
         </div>
     </section>
 
+    <script src="/public/js/main.js"></script>
 </body>
 </html>
