@@ -1,0 +1,8 @@
+.login {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 100% 0% 0% 100% / 0% 50% 50% 100% ;
+    background-color: var(--secondary-color);
+    right: 0;
+    top: 0;
+}

@@ -3,7 +3,8 @@
 @import 'components/buttons.css';
 @import 'components/header.css';
 @import 'components/cards.css';
-
+@import 'pages/login.css';
+@import 'pages/home.css';
 .primary, .secondary, .dark, .light {
     width: 300px;
     height: 300px;
@@ -25,6 +26,6 @@
     background-color: var(--background-light);
 }
 body{
-    background-color: var(--background-light);
+    /* background-color: var(--primary-color); */
     min-height: 300vh;
 }
