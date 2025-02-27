@@ -1,13 +1,275 @@
 
 
 .hero {
-    border-radius: 0% 100% 100% 0% / 100% 0% 100% 0% ;
+    border-radius: 0% 100% 100% 0% / 100% 0% 100% 9% ;    
     background-color: var(--primary-color);
     height: 100vh;
     animation: slideFromTop 0.9s ease-in-out;
+    width: 100% !important;
+    padding-right: 3rem;
+    padding-left: 3rem;
 }
 
 
-.svg {
+.hero-svg {
   animation: float 2s ease infinite;
+  height: 30rem; 
+  width: 30rem;
+}
+
+.hero-data {
+  height: 70%;
+  width: 60%;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.hero-data p {
+  width: 70ch;
+}
+
+.hero-content {
+  height: 40%;
+}
+
+.hero-buttons>a {
+  text-decoration: none;
+}
+
+.hero-features>ul li {
+  color: var(--text-light);
+}
+
+.hero-features>ul li::marker {
+  color: var(--secondary-color);  
+  font-size: 1.5em;  
+}
+
+
+@media screen and (max-width: 786px) {
+  .hero{
+    border-radius: 0;
+    flex-direction: column;
+    padding: 7rem 0 0 0;
+    width: 100vw;
+    height: 100%;
+  }
+
+  .hero-svg {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .hero-data {
+    align-items: center;
+    width: 90%;
+    height: 400px;
+  }
+
+  .hero-data p {
+    width: unset;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+}
+
+
+@media (min-width: 769px) and (max-width: 1142px) {
+  .hero-svg {
+    width: 20rem;
+    height: 20rem;
+  }
+
+  .hero {
+    padding: 0rem 1rem;
+  }
+
+  .hero-data {
+    align-items: center;
+  }
+
+  .hero-data p {
+    width: 50ch;
+  }
+  
+}
+
+
+.aboutUs-svg {
+  width: 25rem;
+  height: 25rem;
+  animation: slideFromRight 0.7s ease-in-out;
+  flex-shrink: 2;
+}
+
+.aboutus .card-container {
+  height: 60vh;
+  animation: slideFromLeft 0.7s ease-in-out;
+}
+
+.aboutus .card-container .global-card {
+  text-align:left;
+  max-width: 80%;
+  justify-content: space-evenly;
+  height: 23rem;
+
+}
+
+.aboutus {
+  margin: 3rem 7rem;
+}
+
+
+.aboutus ul li::marker {
+  color: var(--secondary-color);  
+  font-size: 1.5em;  
+}
+
+.aboutus-btn {
+  margin: 1rem 0rem ;
+  width: 35%; 
+  align-self: center;
+}
+
+@media screen and (max-width: 768px) {
+  .aboutus {
+    flex-direction: column;
+  }
+
+  .aboutus .card-container {
+    width: 100vw;
+    height: 60vh;
+  }
+
+  .aboutus {
+    margin: 0;
+  }
+
+  .aboutus .card-container .global-card {
+    height: fit-content;
+  }  
+
+  .aboutus-btn {
+    width: 60%;
+  }
+  
+}
+
+@media screen and (max-width: 1100px) {
+  .aboutUs-svg {
+    width: 15rem;
+    height  : 15rem;
+  }
+
+  .card-container {
+    width: 100%;
+  }
+
+  .aboutus {
+    margin: 2rem 2rem;
+    justify-content: center;
+    gap: 0px;
+  }
+  
+}
+
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  padding: 20px;
+  margin: 2rem 7rem;
+}
+
+.features-header {
+  padding: 2rem;
+  text-align: center;
+  background-color: var(--primary-color);
+  /* width: 50%; */
+}
+
+.features-header h2 {
+  color: var(--secondary-color);
+}
+
+.feature-svg {
+  width: 250px;
+  height: 250px;
+}
+
+.features>.card-container>.global-card {
+  width: 30vw;
+}
+
+@media screen and (max-width: 768px) {
+  .feature-svg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .features {
+    margin: 2rem 1rem;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .features>.card-container>.global-card {
+    width: 86vw;
+}
+}
+
+
+
+.contactus {
+  border-radius: 100% 0% 0% 0% / 100% 0% 100% 5%;
+  background-color: var(--primary-color);
+  height: 50vh;
+  justify-content: space-evenly;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+
+.home-footer {
+  margin: 0;
+}
+
+.contactus textarea {
+  width: 40%;
+  margin: 0 4rem;
+}
+
+.contactus .input-field {
+  width: 30%;
+}
+
+.contactus h2 {
+  color: var(--secondary-color);
+}
+
+.contact {
+  justify-content: flex-end;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .contact {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contactus {
+    border-radius: 0;
+    /* justify-content: center ; */
+  }
+  
+  .contact .input-field {
+    width: 80%;
+  }
+  
+  .contact textarea {
+    width: 80%;
+  }
 }

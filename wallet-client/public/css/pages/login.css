@@ -59,6 +59,10 @@
     animation: slideFromLeft 0.8s ease-in-out;
 }
 
+.login-action h2 {
+    color: var(--secondary-color);
+}
+
 .forms {
     padding: 2rem 1rem;
     height: 100%;
@@ -75,10 +79,6 @@
 .forms a {
     text-decoration: none;
     color: var(--secondary-color);
-}
-
-.forms {
-
 }
 
 .forms.active {

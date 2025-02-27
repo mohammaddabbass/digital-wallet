@@ -3,17 +3,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
-.glass-card {
+.global-card {
     width: 90%;
-    padding: 20px;
+    padding: 1.5rem;
     border-radius: var(--border-radius);
-    background: var(--glass-bg); 
-    backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-bg);
+    background: var(--accent-color); 
     box-shadow: var(--glass-shadow);
     text-align: center;
-    color: var(--background-dark);
+    color: var(--text-light);
 }

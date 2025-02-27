@@ -1,82 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../public/css/main.css" />
     <title>main</title>
-</head>
-<body>
+  </head>
+  <body>
+    <!-- header -->
     <header id="header">
-        <h2 class="logo">Web<span class="logo-span">Logo</span></h2>
-        <div class="burger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <nav class="navbar">
-            <ul class="nav-ul">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </nav>
-        <div class="actions">
-            <button class="button secondary-btn">Sign In</button>
-            <button class="button secondary-outline-btn">Sign Up</button>
-        </div>
+      <h2 class="logo">Web<span class="logo-span">Logo</span></h2>
+      <div class="burger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="navbar">
+        <ul class="nav-ul">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#aboutUs">About Us</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#contactUs">Contact Us</a></li>
+        </ul>
+      </nav>
+      <div class="actions">
+        <a href="login.html">
+          <button class="button secondary-btn">Sign In</button>
+        </a>
+        <a href="login.html">
+          <button class="button secondary-outline-btn">Sign Up</button>
+        </a>
+      </div>
     </header>
 
-    <div class="hero">
-        <img class="svg" src="/public/images/icons/undraw_online-transactions_8chx.svg" alt="" style="height: 30rem; width: 30rem;position: absolute; left: 3rem; top: 7rem;">
+    <!-- hero -->
+
+    <div id="home" class="hero flex align-items justify-content">
+      <img
+        class="svg hero-svg"
+        src="../public/images/icons/undraw_mobile-pay_yho9.svg"
+        alt="hero-svg"
+      />
+      <div class="hero-data flex column align-items justify-content">
+        <div class="hero-content flex column justify-content">
+          <h1>"Your Money, Your Way – Anytime, Anywhere"</h1>
+          <p>
+            Send, receive, and manage your finances with ease. A secure and
+            seamless digital wallet designed to make transactions effortless.
+          </p>
+          <div class="hero-buttons">
+            <a href="login.html" class="button secondary-outline-btn"
+              >Get Started</a
+            >
+            <a href="#aboutUs" class="button secondary-btn">Learn More</a>
+          </div>
+        </div>
+        <div class="hero-features">
+          <ul>
+            <li>
+              <strong>Fast & Secure Payments</strong> – Transfer money instantly
+              with top-tier security.
+            </li>
+            <li>
+              <strong>Shop & Pay Anywhere</strong> – Use your wallet for online
+              and in-store purchases.
+            </li>
+            <li>
+              <strong>No Hidden Fees</strong> – Transparent transactions with no
+              surprises.
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <footer class="footer">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h4>EcoSnap</h4>
-            <p>Track your impact,<br> shape the future.</p>
-          </div>
-          
-          <div class="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="/Features.html">Features</a></li>
-              <li><a href="/AboutUS.html">About Us</a></li>
-              <li><a href="/contactUs.html">Contact Us</a></li>
-            </ul>
-          </div>
-          
-          <div class="footer-section">
-            <h4>Legal & Support</h4>
-            <ul>
-              <li><a href="/terms.html">Terms &amp; Conditions</a></li>
-              <li><a href="/privacy.html">Privacy Policy</a></li>
-              <li><a href="/support.html">Support</a></li>
-            </ul>
-          </div>
-          
-          <div class="footer-section">
-            <h4>Follow Us</h4>
-            <ul class="social-links">
-              <li><a href="https://www.facebook.com/wallet" target="_blank">Facebook</a></li>
-              <li><a href="https://www.x.com/wallet" target="_blank">X</a></li>
-              <li><a href="https://www.instagram.com/wallet" target="_blank">Instagram</a></li>
-            </ul>
-          </div>
-          
-          <div class="footer-section">
-            <h4>Contact</h4>
-            <p>support@wallet.com<br>+961 70965912</p>
-          </div>
+    <!-- about us -->
+    <div id="aboutUs" class="aboutus flex justify-content align-items">
+      <div class="card-container">
+        <div class="global-card flex column">
+          <h2>About Us</h2>
+          <p>
+            At WebLogo Digital Wallet, we believe managing your finances should
+            be simple, secure, and accessible to everyone. Founded with the
+            vision of transforming everyday transactions, we blend cutting-edge
+            technology with user-friendly design to offer a seamless digital
+            wallet experience.
+          </p>
+          <h3>Our Mission</h3>
+          <ul>
+            <li>
+              Empower users with a secure platform for instant money transfers.
+            </li>
+            <li>Ensure transparency in every transaction.</li>
+            <li>Continuously innovate to make digital payments effortless.</li>
+          </ul>
+          <a href="#features">
+          <button class="button secondary-btn aboutus-btn">Why Us?</button>
+        </a>
         </div>
-        
-        <div class="footer-bottom">
-          <p>&copy; 2025 wallet. All rights reserved.</p>
+      </div>
+
+      <img
+        class="aboutUs-svg"
+        src="../public/images/icons/undraw_select-option_a16s.svg "
+        alt="about us"
+      />
+    </div>
+
+    <!-- features -->
+    <div class="features-header ">
+      <h2>Our Features</h2>
+    </div>    
+    <div class="features" id="features">
+      <div class="card-container">
+        <div class="global-card">
+          <img
+            class="feature-svg"
+            src="../public/images/icons/undraw_security-on_btwg.svg"
+            alt=""
+          />
+          <h2>Secure Transactions</h2>
+          <p>
+            Experience top-level encryption and robust security with every
+            transaction.
+          </p>
         </div>
-      </footer>
-      
+      </div>
+
+      <div class="card-container">
+        <div class="global-card">
+          <img
+            class="feature-svg"
+            src="../public/images/icons/undraw_discount_t4in.svg"
+            alt=""
+          />
+          <h2>No Hidden Fees</h2>
+          <p>
+            Enjoy transparent pricing with zero extra charges on every transfer.
+          </p>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="global-card">
+          <img
+            class="feature-svg"
+            src="../public/images/icons/undraw_transfer-money_h9s3.svg"
+            alt=""
+          />
+          <h2>Transfer Money Anywhere</h2>
+          <p>Send money effortlessly across borders, anytime and anywhere.</p>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="global-card">
+          <img
+            class="feature-svg"
+            src="../public/images/icons/undraw_metrics_02ml.svg"
+            alt=""
+          />
+          <h2>Real-Time Analytics</h2>
+          <p>
+            Gain instant insights into your spending with detailed, real-time
+            statistics.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Us -->
+    <div class="contactus flex align-items column" id="contactUs">
+      <h2>Contact Us</h2>
+      <div class="contact flex align-items">
+        <input
+          class="input-field"
+          type="email"
+          name="email"
+          id=""
+          placeholder="Enter your email"
+        />
+        <textarea
+          name="message"
+          rows="7"
+          cols="33"
+          placeholder="Enter your text here..."
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer home-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>EcoSnap</h4>
+          <p>
+            Track your impact,<br />
+            shape the future.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/Features.html">Features</a></li>
+            <li><a href="/AboutUS.html">About Us</a></li>
+            <li><a href="/contactUs.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Legal & Support</h4>
+          <ul>
+            <li><a href="/terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/support.html">Support</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Follow Us</h4>
+          <ul class="social-links">
+            <li>
+              <a href="https://www.facebook.com/wallet" target="_blank"
+                >Facebook</a
+              >
+            </li>
+            <li><a href="https://www.x.com/wallet" target="_blank">X</a></li>
+            <li>
+              <a href="https://www.instagram.com/wallet" target="_blank"
+                >Instagram</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>support@wallet.com<br />+961 70965912</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 wallet. All rights reserved.</p>
+      </div>
+    </footer>
+
     <script src="../public/js/main.js"></script>
-</body>
+  </body>
 </html>
