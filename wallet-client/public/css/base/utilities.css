@@ -4,7 +4,7 @@
 
 
 .justify-content {
-    justify-content: center;
+    justify-content: space-between;
 }
 .align-items {
     align-items: center;
@@ -28,17 +28,16 @@
 }
 
 h1 {
-    
+    text-decoration: underline;
+    text-decoration-color: var(--secondary-color);
+    color: var(--text-dark);
+    text-underline-offset: 5px;
 }
 
-h2 {
-
-}
-
-h3 {
-
+h2, h3 {
+    color: var(--primary-color);
 }
 
 p {
-
+    color: var(--text-light);
 }
