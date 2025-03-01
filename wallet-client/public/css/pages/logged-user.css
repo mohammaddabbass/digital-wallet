@@ -190,3 +190,55 @@
     width: 100%;
     justify-content: space-evenly;
 }
+
+
+.help-page {
+    gap: 1rem;
+}
+
+.help-overview {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: #f8fafc;
+    border-radius: var(--border-radius);
+}
+
+.help-section {
+    padding: 1.5rem;
+    border-left: 4px solid var(--secondary-color);
+    background: var(--accent-color);
+    box-shadow: var(--global-shadow);
+}
+
+.cta-buttons {
+    margin-top: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.help-page h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.help-page h3 {
+    margin: 1.2rem 0 0.8rem;
+    font-size: 1.1rem;
+}
+
+.help-page ul {
+    padding-left: 1.5rem;
+    margin: 0.8rem 0;
+}
+
+.help-page li {
+    margin: 0.4rem 0;
+}
+
+
+@media (max-width: 768px) {
+    .help-section {
+        padding: 1rem;
+    }
+}

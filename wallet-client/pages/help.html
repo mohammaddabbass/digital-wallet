@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/main.css">
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <title>Dashboard</title>
+    <title>Help Center</title>
 </head>
 <body>
+
     <header id="header">  
         <h2 class="logo">Web<span class="logo-span">Logo</span></h2>
         <div class="burger-menu">
@@ -24,9 +24,8 @@
 
       <aside class="sidebar">
         <div class="profile flex align-items ">
-            <img src="../public/images/icons/undraw_pic-profile_nr49.svg" alt="Profile photo" class="avatar">
-            <h3 class="username">Mohammad Abbass</h3>
-          </div>
+          <img src="../public/images/icons/undraw_pic-profile_nr49.svg" alt="Profile photo" class="avatar">
+          <h3 class="username">Mohammad Abbass</h3>
         </div>
         <hr>
         <nav class="sidebar-nav" >
@@ -36,15 +35,83 @@
           <a href="qr-payments.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-qr-code"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></svg> QR Payments</a>
           <a href="transaction-history.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-left"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg> Transactions</a>
           <a href="help.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-help"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg> Help</a>
+          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-more"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg> Chating</a>
           <a href="#">Logout</a>
         </nav>
       
       </aside>
+<section class="help-page sidebar-margin flex column">
 
-      <section class="help-page sidebar-margin flex column justify-content align-items">
+    <div class="help-overview">
+        <h2>Welcome to WebWallet</h2>
+        <p>A secure digital wallet platform enabling instant transactions, smart financial management, 
+        and seamless integration with third-party services. Manage your money safely and efficiently 
+        with enterprise-grade security features.</p>
+    </div>
 
+    <div class="help-section">
+        <h2>Getting Started</h2>
+        
+        <h3>Account Creation</h3>
+        <ul>
+            <li>Register using email, phone number, or social login options</li>
+            <li>Verify your account via email or SMS</li>
+            <li>Set up security questions and passwords</li>
+        </ul>
 
-      </section>
+        <h3>Identity Verification</h3>
+        <ul>
+            <li>Upload ID documents</li>
+            <li>Use automatic verification APIs</li>
+        </ul>
+    </div>
 
+    <div class="help-section">
+        <h2>Wallet Features & Transactions</h2>
+        
+        <h3>Deposit & Withdrawal</h3>
+        <ul>
+            <li>Securely load and withdraw funds</li>
+        </ul>
+
+        <h3>Internal Transfers</h3>
+        <ul>
+            <li>Send peer-to-peer (P2P) transfers instantly</li>
+        </ul>
+
+        <h3>Scheduled & Recurring Payments</h3>
+        <ul>
+            <li>Set up automatic payments</li>
+        </ul>
+
+        <h3>QR Code Payments</h3>
+        <ul>
+            <li>Generate and scan QR codes</li>
+        </ul>
+    </div>
+
+    <div class="help-section">
+        <h2>Security & Notifications</h2>
+        
+        <h3>Real-Time Notifications</h3>
+        <ul>
+            <li>Receive alerts for transactions and security updates</li>
+        </ul>
+
+        <h3>Self-Service Security Features</h3>
+        <ul>
+            <li>Reset passwords and block/unblock cards</li>
+        </ul>
+    </div>
+
+    <div class="help-section">
+        <h2>Support & Assistance</h2>
+        
+        <div class="cta-buttons flex">
+            <a href="#" class="button primary-btn">Start Live Chat</a>
+            <a href="#" class="button primary-outline-btn">Submit Support Ticket</a>
+        </div>
+    </div>
+</section>
 </body>
 </html>
