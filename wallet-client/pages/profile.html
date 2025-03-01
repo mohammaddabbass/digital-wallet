@@ -3,9 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/main.css">
     <title>Profile</title>
 </head>
 <body>
-    
+    <button class="button danger-btn exit-btn" onclick="window.history.back();">X</button>
+
+    <div class="card-container">
+        <div class="global-card">
+            <h2>Profile Settings</h2>
+            <form id="profileForm">
+              <div class="form-group">
+                <label>Full Name:</label>
+                <input type="text" name="full_name" id="fullName" disabled>
+              </div>
+              
+              <div class="form-group">
+                <label>Email:</label>
+                <input type="email" name="email" id="email" disabled>
+              </div>
+              
+              <div class="form-group">
+                <label>Phone:</label>
+                <input type="tel" name="phone" id="phone" disabled>
+              </div>
+              
+              <div class="form-group">
+                <label>Address:</label>
+                <textarea name="address" id="address" disabled></textarea>
+              </div>
+              
+              <div class="form-actions">
+                <button type="button" id="editBtn" class="btn-edit">Edit Profile</button>
+                <button type="submit" id="saveBtn" class="btn-save" disabled>Save Changes</button>
+              </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
