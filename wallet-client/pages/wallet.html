@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/main.css">
+    <title>Wallet</title>
+</head>
+<body>
+    <header id="header">  
+        <h2 class="logo">Web<span class="logo-span">Logo</span></h2>
+        <div class="burger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav class="navbar">
+          <ul class="nav-ul">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#aboutUs">About Us</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#contactUs">Contact Us</a></li>
+          </ul>
+        </nav>
+        <div class="actions">
+            <a href="#" class="profile-icon">👤</a>
+            <button class="toggle-themes"></button>
+        </div>
+      </header>
+
+      <aside class="sidebar">
+        <div class="profile">
+          <img src="" alt="Profile photo" class="avatar">
+          <h3>Mohammad Abbass</h3>
+        </div>
+        <hr>
+        <nav class="sidebar-nav">
+          <a href="dashboard.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-no-axes-combined"><path d="M12 16v5"/><path d="M16 14v7"/><path d="M20 10v11"/><path d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15"/><path d="M4 18v3"/><path d="M8 14v7"/></svg> Dashboard</a>
+          <a href="wallet.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wallet"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg> Wallet</a>
+          <a href="transfer.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-to-back"><rect x="14" y="14" width="8" height="8" rx="2"/><rect x="2" y="2" width="8" height="8" rx="2"/><path d="M7 14v1a2 2 0 0 0 2 2h1"/><path d="M14 7h1a2 2 0 0 1 2 2v1"/></svg> Transfers</a>
+          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-qr-code"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></svg> QR Payments</a>
+          <a href="transaction-history.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-left"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg> Transactions</a>
+          <a href="#">Reports</a>
+          <a href="#">Logout</a>
+        </nav>
+      
+      </aside>
+
+      <section class="wallet-page sidebar-margin flex column justify-content align-items">
+        <h2 class="pages-title">Your Wallet</h2>
+
+        <div class="card-container wallet">
+          <div class="global-card flex column justify-content">
+            <div class="wallet-details flex align-items justify-content ">
+              <h2>#14723889124</h2>
+              <select class="input-field" name="" id="">
+                <option value="">Mohammad's wallet</option>
+                <option value="">Hassan's wallet</option>
+                <option value="">Ali's wallet</option>
+              </select>
+            </div>  
+            <h2>Your Current balance is: 500$</h2>
+            <p>deposite money in your wallet</p>
+            <div class="deposite flex justify-content align-items">
+              <input class="input-field" type="number" name="" id=""  placeholder="amount">
+              <button class="button primary-btn deposite-btn" >Deposite</button>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row2 flex row justify-content align-items">
+          
+          <div class="card-container wallet-create">
+            <div class="global-card flex column justify-content">
+              <h2>Create Wallet</h2>
+              <input class="input-field" type="text" name="wallet-name" id="" placeholder="Wallet's Name">
+              <input class="input-field" type="number" name="" id="" placeholder="amount">
+              <button class="button primary-btn">Create</button>
+            </div>
+          </div>
+
+          <div class="card-container visa">
+              <div class="global-card flex column justify-content border-bottom border-top">
+                  <h2> Mohammad Abbass</h2>
+                  <hr>
+                  <p><span class="card-label">State </span>Active</p>
+                  <div class="card-details flex justify-content align-items">
+                      <p><span class="card-label">Id </span> 7482892134</p>
+                      <p><span class="card-label">Expires in </span> 20-11-2026</p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="card-container activate-card">
+              <div class="global-card flex column justify-content border-bottom border-top">
+                  <h2> Mohammad Abbass</h2>
+                  <hr>
+                  <button class="button primary-btn">Activate Card</button>
+              </div>
+          </div>
+
+        </div>
+      </section>
+</body>
+</html>
