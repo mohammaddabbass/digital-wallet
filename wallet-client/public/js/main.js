@@ -61,3 +61,28 @@ function switchForm(mode) {
 //         registerForm.classList.remove('slide-in-left');
 //     }
 // }
+
+// sidebar responsiveness 
+const sidebarBurgerMenu = document.querySelector('.sidebar-burger-menu');
+const sidebar = document.querySelector('.sidebar');
+
+sidebarBurgerMenu.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+    sidebarBurgerMenu.classList.toggle('active');
+});
+
+// Close sidebar when clicking outside
+document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && !sidebarBurgerMenu.contains(e.target)) {
+        sidebar.classList.remove('active');
+        sidebarBurgerMenu.classList.remove('active');
+    }
+});
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        sidebar.classList.remove('active');
+        sidebarBurgerMenu.classList.remove('active');
+    }
+});

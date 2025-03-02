@@ -9,10 +9,10 @@
 <body>
     <button class="button danger-btn exit-btn" onclick="window.history.back();">X</button>
 
-    <div class="card-container">
-        <div class="global-card">
+    <div class="card-container profile-container">
+        <div class="global-card profile-card flex column justify-content">
             <h2>Profile Settings</h2>
-            <form id="profileForm">
+            <form id="profileForm" class="profile-form flex column justify-content">
               <div class="form-group">
                 <label>Full Name:</label>
                 <input class="input-field" type="text" name="full_name" id="fullName" disabled>
@@ -34,8 +34,8 @@
               </div>
               
               <div class="form-actions">
-                <button type="button" id="editBtn" class="btn-edit">Edit Profile</button>
-                <button type="submit" id="saveBtn" class="btn-save" disabled>Save Changes</button>
+                <button type="button" id="editBtn" class="button primary-btn">Edit Profile</button>
+                <button type="submit" id="saveBtn" class="button success-btn" disabled>Save Changes</button>
               </div>
             </form>
         </div>

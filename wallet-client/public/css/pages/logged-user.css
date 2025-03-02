@@ -19,8 +19,11 @@
     max-width: 90%;
 }
 
-@media screen and (max-width) {
-    
+@media screen and (max-width: 768px) {
+    .transfer-page .global-card {
+        height: 26vh;
+        width: 90vw;
+    }
 }
 
 
@@ -106,7 +109,7 @@
     }
 
     .sidebar-margin {
-        margin: 8rem 0rem;
+        margin: 3rem 0rem;
     }
 }
 
@@ -240,5 +243,44 @@
 @media (max-width: 768px) {
     .help-section {
         padding: 1rem;
+    }
+}
+
+.profile-container {
+    position: absolute;
+    top: 20%;
+    right: 20%;
+    bottom: 20%;
+    left: 20%;
+}
+
+.profile-card {
+    height: 60vh;
+    width: 50vw;
+}
+
+.profile-card .input-field {
+    max-width: 80%;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-form {
+    height: 80%;
+}
+
+@media screen and (max-width:768px) {
+    .profile-container {
+        left: 0;
+        right: 0;
+    }
+
+    .profile-card {
+        height: 60vh;
+        width: 90vw;
     }
 }
