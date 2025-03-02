@@ -58,22 +58,22 @@ var options = {
 const sidebar = document.querySelector('.sidebar');
 
 sidebarBurgerMenu.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
-    sidebarBurgerMenu.classList.toggle('active');
+    sidebar.classList.toggle('active-s');
+    sidebarBurgerMenu.classList.toggle('active-s');
 });
 
 // Close sidebar when clicking outside
 document.addEventListener('click', (e) => {
     if (!sidebar.contains(e.target) && !sidebarBurgerMenu.contains(e.target)) {
-        sidebar.classList.remove('active');
-        sidebarBurgerMenu.classList.remove('active');
+        sidebar.classList.remove('active-s');
+        sidebarBurgerMenu.classList.remove('active-s');
     }
 });
 
 // Handle window resize
 window.addEventListener('resize', () => {
     if (window.innerWidth > 768) {
-        sidebar.classList.remove('active');
-        sidebarBurgerMenu.classList.remove('active');
+        sidebar.classList.remove('active-s');
+        sidebarBurgerMenu.classList.remove('active-s');
     }
 });
