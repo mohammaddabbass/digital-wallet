@@ -12,10 +12,9 @@
 
     --font-primary: 'Inter', sans-serif;
 
-    --glass-bg: #1a73e868;
     --glass-border: rgba(255, 255, 255, 0.225);
-    --glass-blur: blur(10px);
-    --glass-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --global-shadow: 3px 4px 6px rgba(38, 38, 38, 0.3);
 
     --border-radius: 14px;
+    --border-line: 3px solid var(--secondary-color)
 }   

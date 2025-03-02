@@ -41,3 +41,20 @@ h2, h3 {
 p {
     color: var(--text-light);
 }
+
+.sidebar-margin {
+    margin: 8rem 0rem 6rem 16rem;
+}
+
+.pages-title{
+    text-align: center;
+    margin: 2rem 0rem
+}
+
+.border-bottom {
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+.border-top {
+    border-top: 3px solid var(--secondary-color);
+}

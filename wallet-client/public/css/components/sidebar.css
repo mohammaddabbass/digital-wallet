@@ -1,0 +1,89 @@
+.sidebar {
+    width: 250px;
+    height: 100%;
+    background: var(--primary-color);
+    color: white;
+    padding: 1.5rem;
+    position: fixed;
+    left: 0;
+    top: 4.75em;
+  }
+  
+  .sidebar-nav a {
+    display: block;
+    padding: 1.2rem;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .sidebar-nav a:hover {
+    background: var(--primary-color);
+  }
+  
+
+@media screen and (max-width: 850px) {
+    .sidebar {
+        top: 4.8rem;
+    }
+}
+
+/* Burger Menu Styles */
+.sidebar-burger-menu {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    z-index: 1000;
+}
+
+.sidebar-burger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* Responsive Sidebar */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        left: -250px;
+        transition: 0.3s;
+        z-index: 999;
+        top: 0;
+        height: 100vh;
+    }
+    
+    .sidebar.active {
+        left: 0;
+    }
+
+    .sidebar-burger-menu {
+        display: block;
+    }
+
+    /* Transform burger to X when active */
+    .sidebar-burger-menu.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .sidebar-burger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .sidebar-burger-menu.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Adjust header positioning */
+    #header {
+        position: relative;
+        padding-left: 50px;
+    }
+    
+    /* Hide header title on mobile */
+    #header h2:not(.logo) {
+        display: none;
+    }
+}

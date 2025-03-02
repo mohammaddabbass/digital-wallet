@@ -3,32 +3,13 @@
 @import 'base/utilities.css';
 @import 'components/buttons.css';
 @import 'components/header.css';
+@import 'components/sidebar.css';
 @import 'components/cards.css';
 @import 'components/footer.css';
 @import 'components/inputs.css';
 @import 'pages/login.css';
 @import 'pages/home.css';
+@import 'pages/logged-user.css';
 @import 'base/animations.css';
-
-.primary, .secondary, .dark, .light {
-    width: 300px;
-    height: 300px;
-}
-
-.primary{
-    background-color: var(--primary-color);
-}
-
-.secondary{
-    background-color: var(--secondary-color);
-}
-
-.dark{
-    background-color: var(--background-dark);
-}
-
-.light{
-    background-color: var(--background-light);
-}
 
 

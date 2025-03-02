@@ -1,0 +1,286 @@
+.transaction-page .global-card {
+    margin-bottom: 2rem;
+}
+
+.transfer-page .global-card {
+    height: 30vh;
+    width: 50vw;
+}
+
+@media screen and (max-width:768px) {
+    .transaction-page .global-card .transaction-data{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+.transfer-page .form-group .input-field {
+    max-width: 90%;
+}
+
+@media screen and (max-width: 768px) {
+    .transfer-page .global-card {
+        height: 26vh;
+        width: 90vw;
+    }
+}
+
+
+.wallet-page {
+    gap: 2rem;
+}
+
+.wallet-page .visa .global-card {
+    height: 30vh;
+    align-items: flex-start;
+}
+
+.wallet-page .visa .global-card hr {
+    width: 100%;
+}
+
+.wallet-page .visa .global-card .card-details {
+    width: 100%;
+}
+
+.wallet-page .visa .global-card .card-label {
+    color: var(--secondary-color);
+}
+
+.activate-card {
+    display: none;
+}
+
+.wallet .global-card {
+    width: 60vw;
+    height: 35vh;
+    align-items: flex-start;
+}
+
+.wallet .global-card .input-field {
+    width: 50%;
+}
+
+
+.wallet .wallet-details {
+    width: 100%;
+}
+
+
+.deposite {
+    width: 100%;
+}
+
+.wallet .deposite .input-field {
+    width: 55%;
+}
+
+.wallet .deposite .deposite-btn {
+    width: 40%;
+}
+
+.wallet-page .row2 .wallet-create .global-card {
+    height: 30vh;
+}
+
+.row2 {
+    width: 80vw;
+    justify-content: space-evenly;
+}
+
+.row2 .card-container .global-card {
+    width: 30vw;
+}
+
+
+@media screen and (max-width: 786px) {
+    .row2 {
+        flex-direction: column ;
+        gap: 2rem;
+    }
+
+    .row2 .card-container .global-card {
+        width: 80vw;
+    }
+    
+    .wallet .global-card{
+        width: 90vw;
+    }
+
+    .sidebar-margin {
+        margin: 3rem 0rem;
+    }
+}
+
+.dashboard-cards-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.dashboard-cards {
+    width: 20%;
+    height: 13vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.span-2 {
+    width: 40%;
+}
+
+.dashboard .chart{
+    width: 60vw;
+}
+
+.dashboard {
+    margin-top: 3rem;
+}
+
+
+
+@media screen and (max-width: 786px) {
+    .dashboard .chart {
+        width: 100vw;
+        margin-top: 3rem;
+    }
+
+    .dashboard-cards-container {
+        margin-top: 6rem;
+    }
+
+    .dashboard-cards {
+        width: 40%
+    }
+
+    .span-2 {
+        width: 80%;
+    }
+    
+}
+
+.qr-code {
+    height: 30vh;
+    width: 40vw;
+}
+
+.qr-form{
+    width: 100%;
+    height: 100%;
+}
+
+.exit-btn {
+    position: absolute;
+    left: 2rem;
+    top: 2rem;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    background-color: var(--text-dark);
+    border-radius: 100px;
+}
+
+.username {
+    color: var(--text-dark); 
+    font-size: 1rem;
+}
+
+.profile {
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+
+.help-page {
+    gap: 1rem;
+}
+
+.help-overview {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: #f8fafc;
+    border-radius: var(--border-radius);
+}
+
+.help-section {
+    padding: 1.5rem;
+    border-left: 4px solid var(--secondary-color);
+    background: var(--accent-color);
+    box-shadow: var(--global-shadow);
+}
+
+.cta-buttons {
+    margin-top: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.help-page h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.help-page h3 {
+    margin: 1.2rem 0 0.8rem;
+    font-size: 1.1rem;
+}
+
+.help-page ul {
+    padding-left: 1.5rem;
+    margin: 0.8rem 0;
+}
+
+.help-page li {
+    margin: 0.4rem 0;
+}
+
+
+@media (max-width: 768px) {
+    .help-section {
+        padding: 1rem;
+    }
+}
+
+.profile-container {
+    position: absolute;
+    top: 20%;
+    right: 20%;
+    bottom: 20%;
+    left: 20%;
+}
+
+.profile-card {
+    height: 60vh;
+    width: 50vw;
+}
+
+.profile-card .input-field {
+    max-width: 80%;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-form {
+    height: 80%;
+}
+
+@media screen and (max-width:768px) {
+    .profile-container {
+        left: 0;
+        right: 0;
+    }
+
+    .profile-card {
+        height: 60vh;
+        width: 90vw;
+    }
+}

@@ -39,7 +39,7 @@ header {
 
 .nav-ul li:hover {
     background-color: var(--glass-bg);
-    box-shadow: var(--glass-shadow);
+    box-shadow: var(--global-shadow);
 }
 
 .nav-ul li:hover a {

@@ -7,6 +7,63 @@
     <title>home</title>
 </head>
 <body>
-    <div class="d"></div>
+        <header id="header">  
+            <h2 class="logo">Web<span class="logo-span">Logo</span></h2>
+            <div class="burger-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <nav class="navbar">
+              <ul class="nav-ul">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#aboutUs">About Us</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contactUs">Contact Us</a></li>
+              </ul>
+            </nav>
+            <div class="actions">
+                <a href="#" class="profile-icon">👤</a>
+                <button class="toggle-themes"></button>
+            </div>
+          </header>
+
+          <aside class="sidebar">
+            <div class="profile">
+              <img src="" alt="Profile photo" class="avatar">
+              <h3>My Profile</h3>
+            </div>
+            <hr>
+            <nav class="sidebar-nav">
+              <a href="#">Dashboard</a>
+              <a href="#">Wallet</a>
+              <a href="#">Transfers</a>
+              <a href="#">QR Payments</a>
+              <a href="#">Transaction History</a>
+              <a href="#">Reports</a>
+              <a href="#">Logout</a>
+            </nav>
+          
+          </aside>
+
+          
+
+            <div class="card-container" style="margin: 10rem 0rem 6rem 16rem;">
+              <div class="global-card flex column align-items justify-content " style="height: 60vh;">
+                <div class="from-group flex row align-items">
+                  
+                  <label for="recepient"> recepient</label>
+                  <input name="recepient" class="input-field" type="text">
+                </div>
+                <div class="from-group flex row">
+                  <label for="amount">amount</label>
+                  <input name="amount" class="input-field" type="number">
+                  
+                </div>
+                <button class="button primary-btn">Confirm Transfer</button>
+              </div>
+            </div>
+
+
 </body>
 </html>
