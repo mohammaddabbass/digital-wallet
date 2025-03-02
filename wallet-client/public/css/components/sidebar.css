@@ -27,7 +27,6 @@
     }
 }
 
-/* Burger Menu Styles */
 .sidebar-burger-menu {
     display: none;
     cursor: pointer;
@@ -45,7 +44,6 @@
     transition: 0.4s;
 }
 
-/* Responsive Sidebar */
 @media screen and (max-width: 768px) {
     .sidebar {
         left: -250px;
@@ -55,7 +53,7 @@
         height: 100vh;
     }
     
-    .sidebar.active {
+    .sidebar.active-s {
         left: 0;
     }
 
@@ -63,26 +61,23 @@
         display: block;
     }
 
-    /* Transform burger to X when active */
-    .sidebar-burger-menu.active span:nth-child(1) {
+    .sidebar-burger-menu.active-s span:nth-child(1) {
         transform: rotate(-45deg) translate(-5px, 6px);
     }
 
-    .sidebar-burger-menu.active span:nth-child(2) {
+    .sidebar-burger-menu.active-s span:nth-child(2) {
         opacity: 0;
     }
 
-    .sidebar-burger-menu.active span:nth-child(3) {
+    .sidebar-burger-menu.active-s span:nth-child(3) {
         transform: rotate(45deg) translate(-5px, -6px);
     }
 
-    /* Adjust header positioning */
     #header {
         position: relative;
         padding-left: 50px;
     }
     
-    /* Hide header title on mobile */
     #header h2:not(.logo) {
         display: none;
     }
