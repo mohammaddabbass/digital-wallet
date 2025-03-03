@@ -4,6 +4,7 @@ require '../../config/connection.php';
 require '../../model/User.php';
 require '../../model/UserFunctions.php';
 
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     $email = $_POST['email'];
@@ -18,7 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         echo json_encode(['message' => 'Invalid password']);
     }
     else {
-        echo json_encode(['message' => 'Login successful', 'user' => $user->toArray()]);
+        $_SESSION['user_id'] = $user->getId();
+        $_SESSION['user_name'] = $user->getFirstName() . " " .$user->getLastName();
+        echo json_encode(['message' => 'Login successful', 'user' => $user->toArray(), 'session_id' => $_SESSION['user_id'] , 'session_name' => $_SESSION['user_name']]);
     }
 
 }else {
