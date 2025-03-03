@@ -1,28 +1,40 @@
 <?php
 include_once '../../config/connection.php';
 
-class UserFunctions {
+class UserFunctions
+{
     private $conn;
 
-    public function __construct($conn) {
+    public function __construct($conn)
+    {
         $this->conn = $conn;
     }
 
-    public function insertUser(User $user) {
-        $query = "INSERT INTO users (email, phone, password, first_name, last_name, created_at, updated_at, is_verified) 
+    public function insertUser(User $user)
+    {
+        $query = "INSERT INTO users (email, phone ,password, first_name, last_name, created_at, updated_at, is_verified) 
                   VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         if ($stmt = $this->conn->prepare($query)) {
+            $email = $user->getEmail();
+            $phone = $user->getPhone();
+            $password = $user->getPassword();
+            $firstName = $user->getFirstName();
+            $lastName = $user->getLastName();
+            $createdAt = $user->getCreatedAt();
+            $updatedAt = $user->getUpdatedAt();
+            $isVerified = $user->getIsVerified();
+
             $stmt->bind_param(
-                'ssssssss',  
-                $user->getEmail(),
-                $user->getPhone(),
-                $user->getPassword(),
-                $user->getFirstName(),
-                $user->getLastName(),
-                $user->getCreatedAt(),
-                $user->getUpdatedAt(),
-                $user->getIsVerified()
+                'sssssssi',
+                $email,
+                $phone,
+                $password,
+                $firstName,
+                $lastName,
+                $createdAt,
+                $updatedAt,
+                $isVerified
             );
 
             if ($stmt->execute()) {
@@ -37,7 +49,8 @@ class UserFunctions {
         return false;
     }
 
-    public function getUserByEmail($email) {
+    public function getUserByEmail($email)
+    {
         $query = "SELECT * FROM users WHERE email = ?";
 
         if ($stmt = $this->conn->prepare($query)) {

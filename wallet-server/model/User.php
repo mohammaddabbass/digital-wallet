@@ -11,7 +11,7 @@ class User {
     private $updated_at;
     private $is_verified;
 
-    public function __construct($id = null, $email = null, $phone = null, $password = null, $first_name = null, $last_name = null, $created_at = null, $updated_at = null, $is_verified = "unverified") {
+    public function __construct($id = null, $email = null, $phone = 0, $password = null, $first_name = null, $last_name = null, $created_at = null, $updated_at = null, $is_verified = 0) {
         $this->id = $id;
         $this->email = $email;
         $this->phone = $phone;

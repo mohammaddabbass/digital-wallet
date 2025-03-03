@@ -6,6 +6,7 @@ require '../../model/UserFunctions.php';
 
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["signup"])) {
     $email = $_POST['email'];
+    $phone = $_POST['phone'] ?? null; 
     $password = $_POST['password']; 
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
@@ -13,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["signup"])) {
 
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $user = new User(null, $email, $phone, $hashed_password, $first_name, $last_name, date('Y-m-d H:i:s'), date('Y-m-d H:i:s'), false);
+    $user = new User(null, $email, $phone ,$hashed_password, $first_name, $last_name, date('Y-m-d H:i:s'), date('Y-m-d H:i:s'), false);
 
     $userFunctions = new UserFunctions($conn);
     if ($userFunctions->insertUser($user)) {
@@ -21,6 +22,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["signup"])) {
     } else {
         echo json_encode(['message' => 'Failed to register user']);
     }
+}else {
+    echo json_encode(["message" => 'Invalid request!']);
 }
 
 ?>

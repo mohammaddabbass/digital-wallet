@@ -49,26 +49,26 @@ class WalletFunctions {
         return $wallets;
     }
 
-    public function updateBalance(Wallet $wallet) {
-        $query = "UPDATE wallets SET balance = ?, updated_at = ? WHERE wallet_id = ?";
+    // public function updateBalance(Wallet $wallet) {
+    //     $query = "UPDATE wallets SET balance = ?, updated_at = ? WHERE wallet_id = ?";
 
-        if ($stmt = $this->conn->prepare($query)) {
-            $stmt->bind_param(
-                'dsi', 
-                $wallet->getBalance(),
-                $wallet->getUpdatedAt(),
-                $wallet->getWalletId()
-            );
+    //     if ($stmt = $this->conn->prepare($query)) {
+    //         $stmt->bind_param(
+    //             'dsi', 
+    //             $wallet->getBalance(),
+    //             $wallet->getUpdatedAt(),
+    //             $wallet->getWalletId()
+    //         );
 
-            if ($stmt->execute()) {
-                $stmt->close();
-                return true;
-            } else {
-                $stmt->close();
-                return false;
-            }
-        }
+    //         if ($stmt->execute()) {
+    //             $stmt->close();
+    //             return true;
+    //         } else {
+    //             $stmt->close();
+    //             return false;
+    //         }
+    //     }
 
-        return false;
-    }
+    //     return false;
+    // }
 }

@@ -11,12 +11,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 
     $userFunctions = new UserFunctions($conn);
     $user = $userFunctions->getUserByEmail($email);
-
-    if ($user && password_verify($password, $user->getPassword())) {
+    if(!$user) {
+        echo json_encode(['message' => 'Invalid email']);
+        return;
+    }elseif (!password_verify($password, $user->getPassword())) {
+        echo json_encode(['message' => 'Invalid password']);
+    }
+    else {
         echo json_encode(['message' => 'Login successful', 'user' => $user->toArray()]);
-    } else {
-        echo json_encode(['message' => 'Invalid email or password']);
     }
 
+}else {
+    echo json_encode(["message" => 'Invalid request!']);
 }
 
