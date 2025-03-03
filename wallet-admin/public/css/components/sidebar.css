@@ -8,6 +8,24 @@
     left: 0;
     top: 4.75em;
   }
+
+.profile {
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+
+.username {
+    color: var(--text-dark); 
+    font-size: 1rem;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    background-color: var(--text-dark);
+    border-radius: 100px;
+}
   
   .sidebar-nav a {
     display: block;
@@ -45,6 +63,10 @@
 }
 
 @media screen and (max-width: 768px) {
+    .sidebar-margin {
+        margin: 3rem 0rem;
+    }
+
     .sidebar {
         left: -250px;
         transition: 0.3s;

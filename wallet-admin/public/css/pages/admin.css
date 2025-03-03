@@ -1,0 +1,49 @@
+.verification-page .card-container {
+    gap: 1rem;
+}
+
+.exit-btn {
+    position: absolute;
+    left: 2rem;
+    top: 2rem;
+}
+
+
+.verification-container {
+    position: absolute;
+    top: 20%;
+    right: 20%;
+    bottom: 20%;
+    left: 20%;
+}
+
+.verification-card {
+    height: 60vh;
+    width: 50vw;
+}
+
+.verification-card .input-field {
+    max-width: 80%;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.verification-form {
+    height: 80%;
+}
+
+@media screen and (max-width:768px) {
+    .verification-container {
+        left: 0;
+        right: 0;
+    }
+
+    .verification-card {
+        height: 60vh;
+        width: 90vw;
+    }
+}
