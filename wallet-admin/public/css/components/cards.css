@@ -1,0 +1,17 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+}
+
+.global-card {
+    width: 90%;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    background: var(--accent-color); 
+    box-shadow: var(--global-shadow);
+    text-align: center;
+    color: var(--text-light);
+}

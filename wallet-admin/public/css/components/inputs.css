@@ -1,0 +1,22 @@
+.input-field {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: var(--border-glass);
+    border-radius: var(--border-radius);
+    outline: none;
+  }
+  .input-field:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  textarea {
+    /* width: 100%; */
+    padding: 12px;
+    font-size: 16px;
+    border: var(--border-glass);
+    border-radius: var(--border-radius);
+    outline: none;
+  }
+  

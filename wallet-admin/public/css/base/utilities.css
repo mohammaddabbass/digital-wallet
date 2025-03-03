@@ -1,0 +1,60 @@
+.flex {
+    display: flex;
+}
+
+
+.justify-content {
+    justify-content: space-between;
+}
+.align-items {
+    align-items: center;
+}
+.column {
+    flex-direction: column;
+}
+
+.row {
+    flex-direction: row;
+}
+
+
+
+.fullwidth {
+    width: 100%;
+}
+
+.fullheight {
+    height: 100%;
+}
+
+h1 {
+    text-decoration: underline;
+    text-decoration-color: var(--secondary-color);
+    color: var(--text-dark);
+    text-underline-offset: 5px;
+}
+
+h2, h3 {
+    color: var(--primary-color);
+}
+
+p {
+    color: var(--text-light);
+}
+
+.sidebar-margin {
+    margin: 8rem 0rem 6rem 16rem;
+}
+
+.pages-title{
+    text-align: center;
+    margin: 2rem 0rem
+}
+
+.border-bottom {
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+.border-top {
+    border-top: 3px solid var(--secondary-color);
+}
