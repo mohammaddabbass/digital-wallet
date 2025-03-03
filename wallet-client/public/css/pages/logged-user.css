@@ -108,9 +108,7 @@
         width: 90vw;
     }
 
-    .sidebar-margin {
-        margin: 3rem 0rem;
-    }
+
 }
 
 .dashboard-cards-container {
@@ -177,23 +175,6 @@
     top: 2rem;
 }
 
-.avatar {
-    width: 30px;
-    height: 30px;
-    background-color: var(--text-dark);
-    border-radius: 100px;
-}
-
-.username {
-    color: var(--text-dark); 
-    font-size: 1rem;
-}
-
-.profile {
-    width: 100%;
-    justify-content: space-evenly;
-}
-
 
 .help-page {
     gap: 1rem;
@@ -256,7 +237,11 @@
 
 .profile-card {
     height: 60vh;
-    width: 50vw;
+    width: 40vw;
+}
+
+.verification-card .input-field {
+    max-width: 80%;
 }
 
 .profile-card .input-field {
@@ -273,14 +258,52 @@
     height: 80%;
 }
 
+
+.verification-card {
+    height: 60vh;
+    width: 40vw;
+}
+
+
+
+
+.verification-form {
+    height: 80%;
+}
+
 @media screen and (max-width:768px) {
+    .card-container {
+        height: 90vh;
+        flex-direction: column; 
+        gap: 2rem;
+        justify-content: center; 
+    }
+
     .profile-container {
         left: 0;
         right: 0;
     }
 
     .profile-card {
-        height: 60vh;
+        height: 80vh;
+        width: 90vw; 
+    }
+
+    .verification-card {
         width: 90vw;
     }
 }
+
+@media screen and (min-width: 769px) {
+    .profile-container {
+        flex-direction: row; 
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .profile-card, .verification-card {
+        width: 50%; 
+        height: 60vh; 
+    }
+}
+
