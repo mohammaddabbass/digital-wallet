@@ -8,8 +8,8 @@
 </head>
 <body>
         <header id="header">  
-            <h2 class="logo">Web<span class="logo-span">Logo</span></h2>
-            <div class="burger-menu">
+          <h2 class="logo">Swift<span class="logo-span">Safe</span></h2>
+          <div class="burger-menu">
               <span></span>
               <span></span>
               <span></span>
@@ -46,24 +46,36 @@
           
           </aside>
 
+
           
 
-            <div class="card-container" style="margin: 10rem 0rem 6rem 16rem;">
-              <div class="global-card flex column align-items justify-content " style="height: 60vh;">
-                <div class="from-group flex row align-items">
-                  
-                  <label for="recepient"> recepient</label>
-                  <input name="recepient" class="input-field" type="text">
-                </div>
-                <div class="from-group flex row">
-                  <label for="amount">amount</label>
-                  <input name="amount" class="input-field" type="number">
-                  
-                </div>
-                <button class="button primary-btn">Confirm Transfer</button>
-              </div>
-            </div>
+          <div class="card-container sidebar-margin ">
 
+
+            <div class="alert success">
+              <i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
+              </i>
+              <strong>Success!</strong> Your action was completed successfully.
+          </div>
+      
+          <div class="alert warning">
+            <i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+            </i>
+              <strong>Warning!</strong> Please check your input before proceeding .
+          </div>
+      
+          <div class="alert error">
+            <i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+            </i>
+              <strong>Error!</strong> Something went wrong. Please try again.
+          </div>
+          </div>
+
+
+          
 
 </body>
 </html>

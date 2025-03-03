@@ -7,6 +7,7 @@
 @import 'components/cards.css';
 @import 'components/footer.css';
 @import 'components/inputs.css';
+@import 'components/alerts.css';
 @import 'pages/login.css';
 @import 'pages/home.css';
 @import 'pages/logged-user.css';

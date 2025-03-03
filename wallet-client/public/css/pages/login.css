@@ -97,6 +97,7 @@
     .login-page{
         flex-direction: column;
         justify-content: center;
+        height: 90vh;
     }
 
     .login-design {

@@ -9,7 +9,7 @@
 <body>
     <button class="button danger-btn exit-btn" onclick="window.history.back();">X</button>
 
-    <div class="card-container profile-container">
+    <div class="card-container profile-container ">
         <div class="global-card profile-card flex column justify-content">
             <h2>Profile Settings</h2>
             <form id="profileForm" class="profile-form flex column justify-content">
@@ -36,6 +36,30 @@
               <div class="form-actions">
                 <button type="button" id="editBtn" class="button primary-btn">Edit Profile</button>
                 <button type="submit" id="saveBtn" class="button success-btn" disabled>Save Changes</button>
+              </div>
+            </form>
+        </div>
+        <div class="global-card verification-card flex column justify-content">
+            <h2>Request Verification</h2>
+            <form id="verificationForm" class="verification-form flex column justify-content">
+              <div class="form-group">
+                <label>Full Name:</label>
+                <input class="input-field" type="text" name="full_name" id="fullName" disabled>
+              </div>
+              
+              <div class="form-group">
+                <label>Email:</label>
+                <input class="input-field" type="email" name="email" id="email" disabled>
+              </div>
+              
+              <div class="form-group">
+                <label>Phone:</label>
+                <input class="input-field" type="tel" name="phone" id="phone" >
+              </div>
+              
+              
+              <div class="form-actions">
+                <button type="button" id="editBtn" class="button primary-btn">Send Request</button>
               </div>
             </form>
         </div>

@@ -1,0 +1,27 @@
+.alert {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 15px;
+    margin: 10px;
+    border-radius: var(--border-radius);
+    color: var(--text-dark);
+    width: 100%;
+    max-width: 500px;
+}
+
+.success {
+    background-color: var(--success-color); 
+    border-left: 6px solid #458a49;
+}
+
+.warning {
+    background-color: var(--warning-color);
+    border-left: 6px solid #ffa318;
+    color: black;
+}
+
+.error {
+    background-color: var(--error-color); 
+    border-left: 6px solid #D32F2F;
+}

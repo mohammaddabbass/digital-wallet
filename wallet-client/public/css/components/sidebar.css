@@ -38,13 +38,36 @@
 .sidebar-burger-menu span {
     display: block;
     width: 25px;
-    height: 3px;
+    height: 3px;    
     background: #333;
     margin: 5px 0;
     transition: 0.4s;
 }
 
+.avatar {
+    width: 30px;
+    height: 30px;
+    background-color: var(--text-dark);
+    border-radius: 100px;
+}
+
+.username {
+    color: var(--text-dark); 
+    font-size: 1rem;
+}
+
+.profile {
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+
+
 @media screen and (max-width: 768px) {
+    .sidebar-margin {
+        margin: 3rem 0rem;
+    }
+
     .sidebar {
         left: -250px;
         transition: 0.3s;
