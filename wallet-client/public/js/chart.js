@@ -62,7 +62,6 @@ sidebarBurgerMenu.addEventListener('click', () => {
     sidebarBurgerMenu.classList.toggle('active-s');
 });
 
-// Close sidebar when clicking outside
 document.addEventListener('click', (e) => {
     if (!sidebar.contains(e.target) && !sidebarBurgerMenu.contains(e.target)) {
         sidebar.classList.remove('active-s');
