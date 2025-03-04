@@ -56,7 +56,33 @@ class WalletFunctions {
             }
             return $wallets;
         }
-
+        
+        public function getWalletById($wallet_id) {
+            $query = "SELECT * FROM wallets WHERE wallet_id = ?";
+            $wallet = null;
+        
+            if ($stmt = $this->conn->prepare($query)) {
+                $stmt->bind_param("i", $wallet_id);
+                $stmt->execute();
+                $result = $stmt->get_result();
+        
+                if ($row = $result->fetch_assoc()) {
+                    $wallet = new Wallet(
+                        $row['wallet_id'],
+                        $row['user_id'],
+                        $row['balance'],
+                        $row['currency'],
+                        $row['created_at'],
+                        $row['updated_at'],
+                        $row['wallet_name']
+                    );
+                }
+        
+                $stmt->close();
+            }
+        
+            return $wallet;
+        }
 
 
         public function updateBalance($walletId, $delta, $userId) {

@@ -3,8 +3,6 @@
  require '../../model/Wallet.php';
  require '../../model/WalletFunctions.php';
 
- session_start(); 
-
  if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["create"])){
     $name = $_POST['wallet-name'];
     $balance = $_POST['balance'];
@@ -31,12 +29,11 @@
     }
  } 
 
- if (isset($_SESSION['user_id'])) {
-    $userId = $_SESSION['user_id'];
+ if (isset($_POST['user_id'])) {
+    $userId = $_POST['user_id'];
     $walletFunctions = new WalletFunctions($conn);
     $wallets = $walletFunctions->getUserWallets($userId);
     
-    // Return wallets to the frontend (e.g., for dropdown selection)
     return json_encode(['wallets' => $wallets]);
 } else {
     return json_encode(['error' => 'User not logged in']);
