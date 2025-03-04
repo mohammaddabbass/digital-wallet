@@ -57,6 +57,17 @@ class WalletFunctions {
             return $wallets;
         }
 
+
+
+        public function updateBalance($walletId, $delta, $userId) {
+            $query = "UPDATE wallet SET balance = balance + ? WHERE wallet_id = ? AND user_id = ? AND balance + ? >= 0";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bind_param("diii", $delta, $walletId, $userId, $delta);
+            $stmt->execute();
+            $affectedRows = $stmt->affected_rows;
+            $stmt->close();
+            return $affectedRows > 0;
+        }
     // public function updateBalance(Wallet $wallet) {
     //     $query = "UPDATE wallets SET balance = ?, updated_at = ? WHERE wallet_id = ?";
 

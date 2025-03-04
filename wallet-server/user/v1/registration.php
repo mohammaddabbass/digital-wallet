@@ -18,12 +18,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["signup"])) {
 
     $userFunctions = new UserFunctions($conn);
     if ($userFunctions->insertUser($user)) {
-        echo json_encode(['message' => 'User registered successfully']);
+        return json_encode(['message' => 'User registered successfully']);
     } else {
-        echo json_encode(['message' => 'Failed to register user']);
+        return json_encode(['message' => 'Failed to register user']);
     }
 }else {
-    echo json_encode(["message" => 'Invalid request!']);
+    return json_encode(["message" => 'Invalid request!']);
 }
 
 ?>

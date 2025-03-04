@@ -17,47 +17,30 @@
     $wallet_functions = new  WalletFunctions($conn);
 
     if($wallet_functions->createWallet($wallet)){
-        echo json_encode(['message' => "wallet created succefully"]);
+        return json_encode(['message' => "wallet created succefully"]);
     } else{
-        echo json_encode(['message' => "failed to create the wallet"]);
+        return json_encode(['message' => "failed to create the wallet"]);
     }
 
     if(empty($balance)) {
-        echo json_encode(["message" => "please fill the amount"]);
+        return json_encode(["message" => "please fill the amount"]);
     } elseif(empty($name)) {
-        echo json_encode(["message" => "please add the name of the wallet"]);
+        return json_encode(["message" => "please add the name of the wallet"]);
     }else {
-        echo json_encode(["message" => "{$name}'s wallet create"]);
+        return json_encode(["message" => "{$name}'s wallet create"]);
     }
  } 
 
-    if($_SERVER["REQUEST_METHOD"] == "GET"){
-        if (!isset($_SESSION['user_id'])) {
-            echo json_encode(["error" => "User not authenticated"]);
-            return;
-        }
-        $user_id = $_SESSION['user_id'];
-        $wallet_functions = new WalletFunctions($conn);
-
-        $wallets = $wallet_functions->getUserWallets($user_id);
-
-        if (!empty($wallets)) {
-            // Convert Wallet objects to arrays
-            $walletsArray = array_map(function($wallet) {
-                return $wallet->toArray();
-            }, $wallets);
-            
-            echo json_encode([
-                'success' => true,
-                'wallets' => $walletsArray
-            ]);
-        } else {
-            echo json_encode([
-                'success' => false,
-                'message' => 'No wallets found'
-            ]);
-        }
-    }
+ if (isset($_SESSION['user_id'])) {
+    $userId = $_SESSION['user_id'];
+    $walletFunctions = new WalletFunctions($conn);
+    $wallets = $walletFunctions->getUserWallets($userId);
+    
+    // Return wallets to the frontend (e.g., for dropdown selection)
+    return json_encode(['wallets' => $wallets]);
+} else {
+    return json_encode(['error' => 'User not logged in']);
+}
 
 
 ?>
