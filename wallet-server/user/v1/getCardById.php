@@ -9,7 +9,7 @@ if (isset($_POST['card_id'])) {
     $wallet = $cardFunctions->getCardById($cardId);
 
     if ($wallet) {
-        echo json_encode(['wallet' => $wallet->toArray()]);
+        echo json_encode(['card' => $card->toArray()]);
     } else {
         echo json_encode(['error' => 'Card not found']);
     }
