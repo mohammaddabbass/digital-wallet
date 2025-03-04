@@ -17,17 +17,17 @@
     $wallet_functions = new  WalletFunctions($conn);
 
     if($wallet_functions->createWallet($wallet)){
-        echo json_encode(['message' => "wallet created succefully"]);
+        return json_encode(['message' => "wallet created succefully"]);
     } else{
-        echo json_encode(['message' => "failed to create the wallet"]);
+        return json_encode(['message' => "failed to create the wallet"]);
     }
 
     if(empty($balance)) {
-        echo json_encode(["message" => "please fill the amount"]);
+        return json_encode(["message" => "please fill the amount"]);
     } elseif(empty($name)) {
-        echo json_encode(["message" => "please add the name of the wallet"]);
+        return json_encode(["message" => "please add the name of the wallet"]);
     }else {
-        echo json_encode(["message" => "{$name}'s wallet create"]);
+        return json_encode(["message" => "{$name}'s wallet create"]);
     }
  } 
 
@@ -37,9 +37,9 @@
     $wallets = $walletFunctions->getUserWallets($userId);
     
     // Return wallets to the frontend (e.g., for dropdown selection)
-    echo json_encode(['wallets' => $wallets]);
+    return json_encode(['wallets' => $wallets]);
 } else {
-    echo json_encode(['error' => 'User not logged in']);
+    return json_encode(['error' => 'User not logged in']);
 }
 
 
