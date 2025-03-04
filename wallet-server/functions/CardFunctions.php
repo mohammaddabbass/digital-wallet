@@ -1,6 +1,6 @@
 <?php
-include_once 'config/connection.php';
-include_once 'models/Card.php';
+include_once '../../config/connection.php';
+include_once '../../model/Card.php';
 
 class CardFunctions {
     private $conn;

@@ -52,4 +52,18 @@ class Card {
     public function getUpdatedAt() {
         return $this->updated_at;
     }
+
+
+    public function toArray() {
+        return [
+            'card_id' => $this->card_id,
+            'wallet_id' => $this->wallet_id,
+            'card_number' => $this->card_number,
+            'expiry_date' => $this->expiry_date,
+            'ccv' => $this->ccv,
+            'status' => $this->status,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+        ];
+    }
 }
