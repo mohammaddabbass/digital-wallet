@@ -5,8 +5,9 @@
     color: white;
     padding: 1.5rem;
     position: fixed;
+    padding-top: 6em;
     left: 0;
-    top: 4.75em;
+    top: 0em;
   }
   
   .sidebar-nav a {
