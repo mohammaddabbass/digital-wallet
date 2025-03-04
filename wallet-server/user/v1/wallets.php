@@ -31,33 +31,16 @@
     }
  } 
 
-    if($_SERVER["REQUEST_METHOD"] == "GET"){
-        if (!isset($_SESSION['user_id'])) {
-            echo json_encode(["error" => "User not authenticated"]);
-            return;
-        }
-        $user_id = $_SESSION['user_id'];
-        $wallet_functions = new WalletFunctions($conn);
-
-        $wallets = $wallet_functions->getUserWallets($user_id);
-
-        if (!empty($wallets)) {
-            // Convert Wallet objects to arrays
-            $walletsArray = array_map(function($wallet) {
-                return $wallet->toArray();
-            }, $wallets);
-            
-            echo json_encode([
-                'success' => true,
-                'wallets' => $walletsArray
-            ]);
-        } else {
-            echo json_encode([
-                'success' => false,
-                'message' => 'No wallets found'
-            ]);
-        }
-    }
+ if (isset($_SESSION['user_id'])) {
+    $userId = $_SESSION['user_id'];
+    $walletFunctions = new WalletFunctions($conn);
+    $wallets = $walletFunctions->getUserWallets($userId);
+    
+    // Return wallets to the frontend (e.g., for dropdown selection)
+    echo json_encode(['wallets' => $wallets]);
+} else {
+    echo json_encode(['error' => 'User not logged in']);
+}
 
 
 ?>
