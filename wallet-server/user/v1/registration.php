@@ -1,11 +1,8 @@
 <?php
-header("Access-Control-Allow-Origin: http://localhost");
-header("Access-Control-Allow-Credentials: true");
-header("Content-Type: application/json");
 
 require '../../config/connection.php';
 require '../../model/User.php';
-require '../../model/UserFunctions.php';
+require '../../functions/UserFunctions.php';
 
 if (!isset($_POST['email']) || !isset($_POST['password']) || !isset($_POST['first_name']) || !isset($_POST['last_name'])) {
     http_response_code(400);
