@@ -4,7 +4,7 @@ const walletPages = {};
 
 walletPages.base_api = "http://localhost/wallet-project/wallet-server/user/v1/";
 
-
+const alertContainer = document.getElementById('alert-container')
 const successAlert = (message) => {
   const alert = `
       <div class="alert success">
@@ -16,7 +16,14 @@ const successAlert = (message) => {
           <strong>Success!</strong> ${message}
       </div>
   `;
-  document.body.innerHTML += alert;
+  alertContainer.innerHTML += alert;
+
+  setTimeout(() => {
+    const alertElement = document.querySelector('.alert.success');
+    if (alertElement) {
+        alertElement.remove();
+    }
+}, 2000);
 };
 
 const warningAlert = (message) => {
@@ -32,7 +39,14 @@ const warningAlert = (message) => {
           <strong>Warning!</strong> ${message}
       </div>
   `;
-  document.body.innerHTML += alert;
+  alertContainer.innerHTML += alert;
+
+  setTimeout(() => {
+    const alertElement = document.querySelector('.alert.warning');
+    if (alertElement) {
+        alertElement.remove();
+    }
+}, 2000);
 };
 
 const errorAlert = (message) => {
@@ -48,7 +62,14 @@ const errorAlert = (message) => {
           <strong>Error!</strong> ${message}
       </div>
   `;
-  document.body.innerHTML += alert;
+  alertContainer.innerHTML += alert;
+
+  setTimeout(() => {
+    const alertElement = document.querySelector('.alert.error');
+    if (alertElement) {
+        alertElement.remove();
+    }
+}, 2000);
 };
 
 
@@ -108,14 +129,17 @@ walletPages.load_login = async () => {
 
       if (result && result.user) {
         console.log("User object:", result.user);
+        successAlert(result.message);
         localStorage.setItem('user', JSON.stringify(result.user));
         window.location.href = "dashboard.html";
       } else {
-        alert(result?.message || "Login failed");
+        errorAlert(result?.message || "Login failed")
+        // alert(result?.message );
       } 
     } catch (error) {
       console.error("Login error:", error);
-      alert("An error occurred during login");
+      // alert();
+      errorAlert("An error occurred during login")
     }
   });
 };
@@ -161,7 +185,8 @@ walletPages.load_signUp = () => {
       // } 
     } catch (error) {
       console.error("Login error:", error);
-      alert("An error occurred during login");
+      errorAlert("An error occurred during signUp")
+      
     }
   });
 }
