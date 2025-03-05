@@ -1,6 +1,6 @@
 <?php 
 include_once '../../config/connection.php';
-include_once '../../+model/Contact.php';
+include_once '../../model/Contact.php';
 
 class ContactFunctions {
     private $conn;
