@@ -7,7 +7,7 @@ class TransactionFunctions {
     }
 
     private function getDeltaByTransactionType($typeId, $amount) {
-        $positiveTypes = [1]; // deposit
+        $positiveTypes = [1];
         return in_array($typeId, $positiveTypes) ? $amount : -$amount;
     }
 
