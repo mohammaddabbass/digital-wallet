@@ -64,26 +64,43 @@ navLinks.forEach(link => {
 
 
 
-function switchForm(mode) {
-    const loginForm = document.getElementById('loginForm');
-    const registerForm = document.getElementById('registerForm');
-    const loginPage = document.querySelector('.login-page');
+function switchForm(formType) {
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+    const formTitle = document.getElementById("formTitle");
+    const loginSvg = document.querySelector(".login-svg");
+    const registerSvg = document.querySelector(".register-svg");
 
-    if (mode === 'register') {
-        loginPage.classList.add('register-active');
-    } else {// Reset to login mode
+    if (formType === "register") {
+        loginForm.classList.add("fade-out");
+        
+        setTimeout(() => {
+            loginForm.style.display = "none"; 
+            registerForm.style.display = "flex"; 
+            
+            registerForm.classList.remove("fade-out");
+            registerForm.classList.add("fade-in");
+
+            formTitle.innerText = "Create an Account";
+            loginSvg.style.display = "none";
+            registerSvg.style.display = "flex";
+        }, 500); 
+
+    } else if (formType === "login") {
+        registerForm.classList.add("fade-out");
+        
+        setTimeout(() => {
+            registerForm.style.display = "none";
+            loginForm.style.display = "flex"; 
+
+            loginForm.classList.remove("fade-out");
+            loginForm.classList.add("fade-in");
+
+            formTitle.innerText = "Welcome!";
+            registerSvg.style.display = "none";
+            loginSvg.style.display = "flex";
+        }, 500);
     }
 }
-// function switchForm(formType) {
-//     const loginForm = document.getElementById('loginForm');
-//     const registerForm = document.getElementById('registerForm');
 
-//     if (formType === 'register') {
-//         loginForm.classList.add('slide-out-right');
-//         registerForm.classList.add('slide-in-left');
-//     } else {
-//         loginForm.classList.remove('slide-out-right');
-//         registerForm.classList.remove('slide-in-left');
-//     }
-// }
 
