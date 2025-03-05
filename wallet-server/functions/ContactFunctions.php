@@ -1,6 +1,6 @@
 <?php 
-include_once '../../config/connection.db';
-include_once '../model/Contact.php';
+include_once '../../config/connection.php';
+include_once '../../+model/Contact.php';
 
 class ContactFunctions {
     private $conn;
@@ -20,7 +20,7 @@ class ContactFunctions {
             $updated_at = $contact->getUpdatedAt();
 
             $stmt->bind_param(
-                's,s,s,s',
+                'ssss',
                 $email,
                 $message,
                 $created_at,
