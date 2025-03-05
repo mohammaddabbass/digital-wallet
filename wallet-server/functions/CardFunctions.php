@@ -1,6 +1,6 @@
 <?php
-include_once 'config/connection.php';
-include_once 'models/Card.php';
+include_once '../../config/connection.php';
+include_once '../../model/Card.php';
 
 class CardFunctions {
     private $conn;
@@ -65,18 +65,18 @@ class CardFunctions {
         return null;
     }
 
-    public function getCardsByWalletId($wallet_id) {
+    public function getCardByWalletId($wallet_id) {
         $query = "SELECT * FROM cards WHERE wallet_id = ?";
-
+    
         if ($stmt = $this->conn->prepare($query)) {
             $stmt->bind_param('i', $wallet_id);
-
+    
             $stmt->execute();
             $result = $stmt->get_result();
-
-            $cards = [];
-            while ($row = $result->fetch_assoc()) {
-                $cards[] = new Card(
+    
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $card = new Card(
                     $row['card_id'],
                     $row['wallet_id'],
                     $row['card_number'],
@@ -86,12 +86,13 @@ class CardFunctions {
                     $row['created_at'],
                     $row['updated_at']
                 );
+                $stmt->close();
+                return $card; 
             }
-            $stmt->close();
-            return $cards;
         }
-        return [];
+        return null;
     }
+    
 
     public function updateCardStatus($card_id, $status) {
         $query = "UPDATE cards SET status = ?, updated_at = ? WHERE card_id = ?";

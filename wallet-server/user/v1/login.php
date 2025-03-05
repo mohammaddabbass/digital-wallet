@@ -2,7 +2,7 @@
 
 require '../../config/connection.php';
 require '../../model/User.php';
-require '../../model/UserFunctions.php';
+require '../../functions/UserFunctions.php';
 
 
 if (!isset($_POST['email']) || !isset($_POST['password'])) {

@@ -1,7 +1,7 @@
 <?php 
  require '../../config/connection.php';
  require '../../model/Wallet.php';
- require '../../model/WalletFunctions.php';
+ require '../../functions/WalletFunctions.php';
 
  if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["create"])){
     $name = $_POST['wallet-name'];

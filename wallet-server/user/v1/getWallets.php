@@ -1,7 +1,7 @@
 <?php 
  require '../../config/connection.php';
  require '../../model/Wallet.php';
- require '../../model/WalletFunctions.php';
+ require '../../functions/WalletFunctions.php';
 
 
  if (isset($_POST['user_id'])) {
