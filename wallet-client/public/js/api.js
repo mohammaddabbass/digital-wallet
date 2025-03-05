@@ -286,3 +286,97 @@ walletPages.load_transfer = () => {
   walletPages.transfer.transfer_api = walletPages.base_api + "transfer";
 }
 
+
+walletPages.load_contactAdmin = async () => {
+  walletPages.contact = {};
+  walletPages.contact.contact_api = walletPages.base_api + "contactAdmin.php";
+
+  const contactForm = document.getElementById("contact-form");
+
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const emailValue = document.getElementById("email").value;
+    const messaageValue = document.getElementById("message").value;
+
+    try {
+      const formData = new FormData();
+      formData.append('email', emailValue);
+      formData.append('message', messaageValue);
+
+      const result = await walletPages.post_data(walletPages.contact.contact_api, formData, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded" 
+        }
+      });
+
+      if(result.success) {
+        console.log("success happens")
+        successAlert(result.message);
+      } else {
+        console.log("error happens"),
+        console.log(result.message),
+        console.log(result),
+        errorAlert (result.message);
+      }
+
+    } catch (error) {
+      
+    }
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+walletPages.load_login = async () => {
+  walletPages.login = {};
+  walletPages.login.login_api = walletPages.base_api + "login.php";
+
+  const loginForm = document.getElementById("loginForm");
+
+  loginForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const emailValue = document.getElementById('email').value;
+    const passwordValue = document.getElementById('password').value;
+
+    try {
+      const formData = new FormData();
+      formData.append('email', emailValue);
+      formData.append('password', passwordValue);
+
+
+      const result = await walletPages.post_data(
+        walletPages.login.login_api,
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded" 
+          }
+        }
+      );
+      console.log(result)
+
+      if (result && result.user) {
+        console.log("User object:", result.user);
+        successAlert(result.message);
+        localStorage.setItem('user', JSON.stringify(result.user));
+        window.location.href = "dashboard.html";
+      } else {
+        errorAlert(result?.message || "Login failed")
+        // alert(result?.message );
+      } 
+    } catch (error) {
+      console.error("Login error:", error);
+      // alert();
+      errorAlert("An error occurred during login")
+    }
+  });
+};

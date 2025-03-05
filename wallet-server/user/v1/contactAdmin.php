@@ -18,10 +18,10 @@ $contactFunctions = new ContactFunctions($conn);
 
 if($contactFunctions->insertMessage($contact)) {
     http_response_code(201);
-    echo json_encode(["message" => "message sent successfully!"]);
+    echo json_encode(["message" => "message sent successfully!", "success" => true,]);
 } else {
     http_response_code(500);
-    echo json_encode(["message" => "failed to send message"]);
+    echo json_encode(["message" => "failed to send message", "success" => false,]);
 }
 exit;
 
