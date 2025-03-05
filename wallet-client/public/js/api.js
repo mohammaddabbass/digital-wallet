@@ -2,7 +2,77 @@
 
 const walletPages = {};
 
-walletPages.base_api = "http://localhost/wallet-project/wallet-server/user/v1/"
+walletPages.base_api = "http://localhost/wallet-project/wallet-server/user/v1/";
+
+const alertContainer = document.getElementById('alert-container')
+const successAlert = (message) => {
+  const alert = `
+      <div class="alert success">
+          <i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check">
+                  <path d="M20 6 9 17l-5-5"/>
+              </svg>
+          </i>
+          <strong>Success!</strong> ${message}
+      </div>
+  `;
+  alertContainer.innerHTML += alert;
+
+  setTimeout(() => {
+    const alertElement = document.querySelector('.alert.success');
+    if (alertElement) {
+        alertElement.remove();
+    }
+}, 2000);
+};
+
+const warningAlert = (message) => {
+  const alert = `
+      <div class="alert warning">
+          <i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert">
+                  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/>
+                  <path d="M12 9v4"/>
+                  <path d="M12 17h.01"/>
+              </svg>
+          </i>
+          <strong>Warning!</strong> ${message}
+      </div>
+  `;
+  alertContainer.innerHTML += alert;
+
+  setTimeout(() => {
+    const alertElement = document.querySelector('.alert.warning');
+    if (alertElement) {
+        alertElement.remove();
+    }
+}, 2000);
+};
+
+const errorAlert = (message) => {
+  const alert = `
+      <div class="alert error">
+          <i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="m15 9-6 6"/>
+                  <path d="m9 9 6 6"/>
+              </svg>
+          </i>
+          <strong>Error!</strong> ${message}
+      </div>
+  `;
+  alertContainer.innerHTML += alert;
+
+  setTimeout(() => {
+    const alertElement = document.querySelector('.alert.error');
+    if (alertElement) {
+        alertElement.remove();
+    }
+}, 2000);
+};
+
+
 
 walletPages.get_data = async (url) => {
   try {
@@ -59,14 +129,17 @@ walletPages.load_login = async () => {
 
       if (result && result.user) {
         console.log("User object:", result.user);
+        successAlert(result.message);
         localStorage.setItem('user', JSON.stringify(result.user));
         window.location.href = "dashboard.html";
       } else {
-        alert(result?.message || "Login failed");
+        errorAlert(result?.message || "Login failed")
+        // alert(result?.message );
       } 
     } catch (error) {
       console.error("Login error:", error);
-      alert("An error occurred during login");
+      // alert();
+      errorAlert("An error occurred during login")
     }
   });
 };
@@ -112,7 +185,8 @@ walletPages.load_signUp = () => {
       // } 
     } catch (error) {
       console.error("Login error:", error);
-      alert("An error occurred during login");
+      errorAlert("An error occurred during signUp")
+      
     }
   });
 }
