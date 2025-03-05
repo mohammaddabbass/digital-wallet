@@ -225,10 +225,19 @@
 .contactus {
   border-radius: 100% 0% 0% 0% / 100% 0% 100% 5%;
   background-color: var(--primary-color);
-  height: 50vh;
+  height: 60vh;
   justify-content: space-evenly;
-  gap: 1rem;
+  /* gap: 1rem; */
   margin-top: 3rem;
+}
+
+.contact-fields {
+  width: 100%;
+}
+
+.contactus .button {
+  width: 10%;
+  margin-right: 2rem;
 }
 
 
@@ -271,5 +280,10 @@
   
   .contact-form textarea {
     width: 80%;
+  }
+
+  .contactus .button {
+    width: 40%;
+    margin-right: 0;
   }
 }

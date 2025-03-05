@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="../public/css/main.css" />
     <title>main</title>
   </head>
@@ -32,6 +33,13 @@
         </a>
       </div>
     </header>
+
+
+    <div id="alert-container" class="card-container sidebar-margin alerts-container">
+
+
+ 
+    </div>
 
     <!-- hero -->
 
@@ -172,21 +180,26 @@
     <!-- Contact Us -->
     <div class="contactus flex align-items column" id="contactUs">
       <h2>Contact Us</h2>
-        <form class="contact-form flex align-items  " action="" method="post">
+      <div class="flex row contact-fields">
+      <form id="contact-form" class="contact-form flex align-items  " action="">
         <input
           class="input-field"
           type="email"
           name="email"
-          id=""
+          id="email"
           placeholder="Enter your email"
         />
         <textarea
           name="message"
+          id="message"
           rows="7"
           cols="33"
           placeholder="Enter your text here..."
         ></textarea>
+        
+        <button class="button secondary-btn" type="submit">Send</button>
       </form>
+    </div>
     </div>
 
     <!-- footer -->
@@ -247,5 +260,9 @@
     </footer>
 
     <script src="../public/js/main.js"></script>
+    <script src="../public/js/api.js"></script>
+    <script type="text/javascript">
+      walletPages.loadFor("contactAdmin");
+  </script>
   </body>
 </html>
