@@ -2,7 +2,56 @@
 
 const walletPages = {};
 
-walletPages.base_api = "http://localhost/wallet-project/wallet-server/user/v1/"
+walletPages.base_api = "http://localhost/wallet-project/wallet-server/user/v1/";
+
+
+const successAlert = (message) => {
+  const alert = `
+      <div class="alert success">
+          <i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check">
+                  <path d="M20 6 9 17l-5-5"/>
+              </svg>
+          </i>
+          <strong>Success!</strong> ${message}
+      </div>
+  `;
+  document.body.innerHTML += alert;
+};
+
+const warningAlert = (message) => {
+  const alert = `
+      <div class="alert warning">
+          <i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert">
+                  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/>
+                  <path d="M12 9v4"/>
+                  <path d="M12 17h.01"/>
+              </svg>
+          </i>
+          <strong>Warning!</strong> ${message}
+      </div>
+  `;
+  document.body.innerHTML += alert;
+};
+
+const errorAlert = (message) => {
+  const alert = `
+      <div class="alert error">
+          <i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="m15 9-6 6"/>
+                  <path d="m9 9 6 6"/>
+              </svg>
+          </i>
+          <strong>Error!</strong> ${message}
+      </div>
+  `;
+  document.body.innerHTML += alert;
+};
+
+
 
 walletPages.get_data = async (url) => {
   try {
