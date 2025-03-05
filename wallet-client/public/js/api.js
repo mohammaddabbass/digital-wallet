@@ -274,11 +274,51 @@ walletPages.load_wallets = async () => {
 
 
 walletPages.load_createWallet = () => {
-  walletPages.transfer = {};
-  walletPages.transfer.transfer_api = walletPages.base_api + "createWallet.php";
+  walletPages.createWallet = {};
+  walletPages.createWallet.createWallet_api = walletPages.base_api + "createWallet.php";
 
-  
+  const contactForm = document.getElementById("create-wallet");
 
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const walletName = document.getElementById("wallet-name").value;
+    const walletAmount = document.getElementById("wallet-amount").value;
+
+    const userData = localStorage.getItem('user');
+    if (!userData) return;
+    
+    const user = JSON.parse(userData);
+
+    const user_id = user.id;
+
+    try {
+      const formData = new FormData();
+      formData.append('wallet-name', walletName);
+      formData.append('balance', walletAmount);
+      formData.append('user_id', user_id);
+
+      const result = await walletPages.post_data(walletPages.createWallet.createWallet_api, formData, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded" 
+        }
+      });
+
+      if(result.success = 1) {
+        console.log("success happens")
+        successAlert(result.message);
+      } else if(result.success = -1){
+        console.log("error happens"),
+        console.log(result.message),
+        console.log(result),
+        warningAlert (result.message);
+      }else {
+        errorAlert (result.message);
+      }
+
+    } catch (error) {
+      
+    }
+  })
 }
 
 walletPages.load_transfer = () => {
@@ -328,55 +368,3 @@ walletPages.load_contactAdmin = async () => {
 
 
 
-
-
-
-
-
-
-
-
-walletPages.load_login = async () => {
-  walletPages.login = {};
-  walletPages.login.login_api = walletPages.base_api + "login.php";
-
-  const loginForm = document.getElementById("loginForm");
-
-  loginForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const emailValue = document.getElementById('email').value;
-    const passwordValue = document.getElementById('password').value;
-
-    try {
-      const formData = new FormData();
-      formData.append('email', emailValue);
-      formData.append('password', passwordValue);
-
-
-      const result = await walletPages.post_data(
-        walletPages.login.login_api,
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded" 
-          }
-        }
-      );
-      console.log(result)
-
-      if (result && result.user) {
-        console.log("User object:", result.user);
-        successAlert(result.message);
-        localStorage.setItem('user', JSON.stringify(result.user));
-        window.location.href = "dashboard.html";
-      } else {
-        errorAlert(result?.message || "Login failed")
-        // alert(result?.message );
-      } 
-    } catch (error) {
-      console.error("Login error:", error);
-      // alert();
-      errorAlert("An error occurred during login")
-    }
-  });
-};

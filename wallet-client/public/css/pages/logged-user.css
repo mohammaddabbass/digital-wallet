@@ -48,6 +48,10 @@
     color: var(--secondary-color);
 }
 
+.wallet-form {
+    height: 100%;
+}
+
 .activate-card {
     display: none;
 }

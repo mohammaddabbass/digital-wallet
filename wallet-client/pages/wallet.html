@@ -113,6 +113,12 @@
     </nav>
   </aside>
 
+  <div id="alert-container" class="card-container sidebar-margin alerts-container">
+
+
+ 
+  </div>
+
   <section class="wallet-page sidebar-margin flex column justify-content align-items">
     <div class="card-container wallet">
       <div class="global-card flex column justify-content">
@@ -139,10 +145,12 @@
     <div class="row2 flex row justify-content align-items">
       <div class="card-container wallet-create">
         <div class="global-card flex column justify-content">
+          <form id="create-wallet" class="wallet-form flex column justify-content" action="">
           <h2>Create Wallet</h2>
-          <input class="input-field" type="text" name="wallet-name" id="wallet-name" placeholder="Wallet's Name">
-          <input class="input-field" type="number" name="initialAmount" id="initialAmount" placeholder="amount">
-          <button class="button primary-btn">Create</button>
+            <input class="input-field" type="text" name="wallet-name" id="wallet-name" placeholder="Wallet's Name">
+            <input class="input-field" type="number" name="initialAmount" id="wallet-amount" placeholder="amount">
+            <button class="button primary-btn" type="submit">Create</button>
+          </form>
         </div>
       </div>
 
