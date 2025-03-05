@@ -123,6 +123,30 @@ walletPages.load_dashboard = () => {
 }
 
 
+walletPages.load_profile = () => {
+  walletPages.profile = {};
+  
+  // alert("profile loaded");
+  const userData = localStorage.getItem('user');
+  if (!userData) return;
+  
+  const user = JSON.parse(userData);
+  
+  const fullNameInput = document.getElementById("fullName");
+  const emailInput = document.getElementById("email");
+  const phoneInput = document.getElementById("phone");
+  const addressInput = document.getElementById("address");
+  // const phoneVerificationInput = document.getElementById("phone-number");
+  
+  if (fullNameInput) fullNameInput.value = user.first_name + " " + user.last_name || "";
+  if (emailInput) emailInput.value = user.email || "";
+  if (phoneInput) phoneInput.value = user.phone || "";
+  if (addressInput) addressInput.value = user.address || "";
+  if (phoneVerificationInput) phoneVerificationInput.value = user.phone || "";
+};
+
+
+
 walletPages.load_wallets = async () => {
   walletPages.wallet = {};
   walletPages.wallet.wallet_api = walletPages.base_api + "getWallets.php";
@@ -186,10 +210,5 @@ walletPages.load_createWallet = () => {
 walletPages.load_transfer = () => {
   walletPages.transfer = {};
   walletPages.transfer.transfer_api = walletPages.base_api + "transfer";
-}
-
-walletPages.load_profile = () => {
-  walletPages.profile = {};
-  walletPages.profile.profile_api = walletPages.base_api + "profile";
 }
 
