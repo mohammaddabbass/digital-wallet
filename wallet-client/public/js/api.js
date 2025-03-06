@@ -228,7 +228,7 @@ walletPages.load_wallets = async () => {
 
   const userData = localStorage.getItem('user');
   if (!userData) {
-    alert("User not logged in");
+    warningAlert("User not logged in");
     return;
   }
   const user = JSON.parse(userData);
@@ -453,6 +453,15 @@ walletPages.load_contactAdmin = async () => {
     }
   })
 }
+
+
+
+const logout = () => {
+  localStorage.removeItem("user"); 
+  localStorage.removeItem("walletIds"); 
+  window.location.href = "login.html"; 
+}
+
 
 
 
