@@ -245,22 +245,15 @@ walletPages.load_wallets = async () => {
   });
   console.log("Wallet API response:", result);
 
-  // if (result && result.wallets) {
-  //   walletPages.wallet.displayWallets(result.wallets);
-  // } else if (result && result.error) {
-  //   alert(result.error);
-  // } else {
-  //   alert("No wallets found.");
-  // }
     const wallets = result.wallets;
 
     const walletSelect = document.getElementById('walletSelect');
-    walletSelect.innerHTML = ''; // Clear any existing options
+    walletSelect.innerHTML = ''; 
   
     wallets.forEach(wallet => {
       const option = document.createElement('option');
-      option.value = wallet.wallet_id;         // Use wallet id as value
-      option.textContent = wallet.wallet_name;   // Display the wallet name
+      option.value = wallet.wallet_id;         
+      option.textContent = wallet.wallet_name;  
       walletSelect.appendChild(option);
     });
 
@@ -268,15 +261,12 @@ walletPages.load_wallets = async () => {
     const walletIds = wallets.map(wallet => wallet.wallet_id);
   localStorage.setItem('walletIds', JSON.stringify(walletIds));
 
-    // Load the details of the first wallet in the list.
     if (wallets.length > 0) {
-      walletSelect.value = wallets[0].wallet_id; // Set the default selected wallet
+      walletSelect.value = wallets[0].wallet_id; 
       document.getElementById('wallet-id').textContent = '#' + wallets[0].wallet_id;
       document.getElementById('wallet-balance').textContent = `Your Current balance is: ${wallets[0].balance}$`;
     }
   
-    // Attach an event listener to update wallet details on change.
-
   
 };
 
@@ -299,7 +289,6 @@ walletPages.load_updateWalletDetails = async () => {
       });
   
       if (result && result.wallet) {
-        // Update the wallet card details in the DOM.
         document.getElementById('wallet-id').textContent = '#' + result.wallet.wallet_id;
         document.getElementById('wallet-balance').textContent = `Your Current balance is: ${result.wallet.balance}$`;
       } else if (result && result.error) {
@@ -362,6 +351,64 @@ walletPages.load_createWallet = async () => {
     }
   })
 }
+
+
+walletPages.load_deposit = () => {
+  walletPages.deposit = {};
+  walletPages.deposit.deposit_api = walletPages.base_api + "deposit.php";
+
+  const depositButton = document.getElementById('deposite-btn');
+
+  depositButton.addEventListener('click', async () => {
+    const amountInput = document.getElementById('amount');
+    const amount = parseFloat(amountInput.value);
+    
+    if (isNaN(amount) || amount <= 0) {
+      warningAlert("Please enter a valid deposit amount.");
+      return;
+    }
+
+    const walletSelect = document.getElementById('walletSelect');
+    const selectedWalletId = walletSelect.value;
+    const userData = localStorage.getItem('user');
+    if (!userData) return;
+    
+    const user = JSON.parse(userData);
+    const user_id = user.id;
+
+    if (!selectedWalletId) {
+      warningAlert("Please select a wallet.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("wallet_id", selectedWalletId);
+    formData.append("amount", amount);
+    formData.append('user_id', user_id);
+
+    try {
+      const result = await walletPages.post_data(
+        walletPages.deposit.deposit_api, 
+        formData, 
+        { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
+      );
+
+      if (result?.success) {
+        successAlert("Deposit successful!");
+        amountInput.value = '';
+        
+        
+      } else if (result?.error || result?.message) {
+        errorAlert(result.error || result.message);
+      } else {
+        errorAlert("Deposit failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Deposit error:", error);
+      errorAlert("Error processing deposit. Please try again.");
+    }
+  });
+};
 
 walletPages.load_transfer = () => {
   walletPages.transfer = {};

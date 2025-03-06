@@ -85,35 +85,24 @@ class WalletFunctions {
         }
 
 
-        public function updateBalance($walletId, $delta, $userId) {
-            $query = "UPDATE wallet SET balance = balance + ? WHERE wallet_id = ? AND user_id = ? AND balance + ? >= 0";
-            $stmt = $this->conn->prepare($query);
-            $stmt->bind_param("diii", $delta, $walletId, $userId, $delta);
-            $stmt->execute();
-            $affectedRows = $stmt->affected_rows;
-            $stmt->close();
-            return $affectedRows > 0;
+        public function updateBalance($wallet_id, $user_id, $new_balance, $updated_at) {
+            $query = "UPDATE wallets 
+                      SET balance = ?, updated_at = ? 
+                      WHERE wallet_id = ? AND user_id = ?";
+        
+            if ($stmt = $this->conn->prepare($query)) {
+                $stmt->bind_param(
+                    'dsii', 
+                    $new_balance,
+                    $updated_at,
+                    $wallet_id,
+                    $user_id
+                );
+        
+                $result = $stmt->execute();
+                $stmt->close();
+                return $result;
+            }
+            return false;
         }
-    // public function updateBalance(Wallet $wallet) {
-    //     $query = "UPDATE wallets SET balance = ?, updated_at = ? WHERE wallet_id = ?";
-
-    //     if ($stmt = $this->conn->prepare($query)) {
-    //         $stmt->bind_param(
-    //             'dsi', 
-    //             $wallet->getBalance(),
-    //             $wallet->getUpdatedAt(),
-    //             $wallet->getWalletId()
-    //         );
-
-    //         if ($stmt->execute()) {
-    //             $stmt->close();
-    //             return true;
-    //         } else {
-    //             $stmt->close();
-    //             return false;
-    //         }
-    //     }
-
-    //     return false;
-    // }
 }

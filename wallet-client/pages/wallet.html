@@ -133,7 +133,7 @@
         <p>Deposit money in your wallet</p>
         <div class="deposite flex justify-content align-items">
           <input class="input-field" type="number" name="amount" id="amount" placeholder="amount">
-          <button class="button primary-btn deposite-btn">Deposit</button>
+          <button id="deposite-btn" class="button primary-btn deposite-btn">Deposit</button>
         </div>
       </div>
 
@@ -183,6 +183,9 @@
   </script>
   <script type="text/javascript">
     walletPages.loadFor("updateWalletDetails");
+  </script>
+  <script type="text/javascript">
+    walletPages.loadFor("deposit");
   </script>
 
 </body>
