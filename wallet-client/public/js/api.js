@@ -176,15 +176,15 @@ walletPages.load_signUp = () => {
       );
       console.log(result)
 
-      // if (result && result.user) {
-      //   console.log("User object:", result.user);
-      //   localStorage.setItem('user', JSON.stringify(result.user));
+      if (result && result.user) {
+        console.log("User object:", result.user);
+        localStorage.setItem('user', JSON.stringify(result.user));
          window.location.href = "dashboard.html";
-      // } else {
-      //   alert(result?.message || "Login failed");
-      // } 
+      } else {
+        alert(result?.message || "register failed");
+      } 
     } catch (error) {
-      console.error("Login error:", error);
+      console.error("register error:", error);
       errorAlert("An error occurred during signUp")
       
     }
