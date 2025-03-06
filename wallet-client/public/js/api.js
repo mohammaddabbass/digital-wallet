@@ -225,24 +225,6 @@ walletPages.load_wallets = async () => {
   walletPages.wallet = {};
   walletPages.wallet.wallet_api = walletPages.base_api + "getWallets.php";
 
-  walletPages.wallet.displayWallets = (wallets) => {
-    const container = document.getElementById("walletsContainer");
-    if (!container) {
-      console.error("Wallets container not found");
-      return;
-    }
-    container.innerHTML = ""; 
-    wallets.forEach(wallet => {
-      const walletItem = document.createElement("div");
-      walletItem.classList.add("wallet-item");
-      walletItem.innerHTML = `
-        <h3>Wallet ID: ${wallet.wallet_id}</h3>
-        <p>Name: ${wallet.wallet_name || 'N/A'}</p>
-        <p>Balance: ${wallet.balance || 0}</p>
-      `;
-      container.appendChild(walletItem);
-    });
-  };
 
   const userData = localStorage.getItem('user');
   if (!userData) {
@@ -263,23 +245,170 @@ walletPages.load_wallets = async () => {
   });
   console.log("Wallet API response:", result);
 
-  if (result && result.wallets) {
-    walletPages.wallet.displayWallets(result.wallets);
-  } else if (result && result.error) {
-    alert(result.error);
-  } else {
-    alert("No wallets found.");
-  }
+    const wallets = result.wallets;
+
+    const walletSelect = document.getElementById('walletSelect');
+    walletSelect.innerHTML = ''; 
+  
+    wallets.forEach(wallet => {
+      const option = document.createElement('option');
+      option.value = wallet.wallet_id;         
+      option.textContent = wallet.wallet_name;  
+      walletSelect.appendChild(option);
+    });
+
+
+    const walletIds = wallets.map(wallet => wallet.wallet_id);
+  localStorage.setItem('walletIds', JSON.stringify(walletIds));
+
+    if (wallets.length > 0) {
+      walletSelect.value = wallets[0].wallet_id; 
+      document.getElementById('wallet-id').textContent = '#' + wallets[0].wallet_id;
+      document.getElementById('wallet-balance').textContent = `Your Current balance is: ${wallets[0].balance}$`;
+    }
+  
+  
 };
 
 
-walletPages.load_createWallet = () => {
-  walletPages.transfer = {};
-  walletPages.transfer.transfer_api = walletPages.base_api + "createWallet.php";
+walletPages.load_updateWalletDetails = async () => {
+  walletPages.wallet = {};
+  walletPages.wallet.wallet_details_api = walletPages.base_api + "getWalletById.php";
 
+  walletSelect.addEventListener('change', async (event) => {
+    const selectedWalletId = event.target.value;
+
+    const formData = new FormData();
+    formData.append("wallet_id", selectedWalletId);
   
+    try {
+      const result = await walletPages.post_data(walletPages.wallet.wallet_details_api, formData, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      });
+  
+      if (result && result.wallet) {
+        document.getElementById('wallet-id').textContent = '#' + result.wallet.wallet_id;
+        document.getElementById('wallet-balance').textContent = `Your Current balance is: ${result.wallet.balance}$`;
+      } else if (result && result.error) {
+        alert(result.error);
+      }
+    } catch (error) {
+      console.error("Error fetching wallet details:", error);
+    }
+   
+  });
 
+
+};
+
+
+walletPages.load_createWallet = async () => {
+  walletPages.createWallet = {};
+  walletPages.createWallet.createWallet_api = walletPages.base_api + "createWallet.php";
+
+  const contactForm = document.getElementById("create-wallet");
+
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const walletName = document.getElementById("wallet-name").value;
+    const walletAmount = document.getElementById("wallet-amount").value;
+
+    const userData = localStorage.getItem('user');
+    if (!userData) return;
+    
+    const user = JSON.parse(userData);
+
+    const user_id = user.id;
+
+    try {
+      const formData = new FormData();
+      formData.append('wallet-name', walletName);
+      formData.append('balance', walletAmount);
+      formData.append('user_id', user_id);
+
+      const result = await walletPages.post_data(walletPages.createWallet.createWallet_api, formData, {
+        // headers: {
+        //   "Content-Type": "application/x-www-form-urlencoded" 
+        // }
+      });
+
+      if(result.success == 1) {
+        console.log("success happens")
+        successAlert(result.message);
+      } else if(result.success == -1){
+        console.log("error happens"),
+        console.log(result.message),
+        console.log(result),
+        warningAlert (result.message);
+      }else {
+        errorAlert (result.message);
+      }
+
+    } catch (error) {
+      console.log(error)
+    }
+  })
 }
+
+
+walletPages.load_deposit = () => {
+  walletPages.deposit = {};
+  walletPages.deposit.deposit_api = walletPages.base_api + "deposit.php";
+
+  const depositButton = document.getElementById('deposite-btn');
+
+  depositButton.addEventListener('click', async () => {
+    const amountInput = document.getElementById('amount');
+    const amount = parseFloat(amountInput.value);
+    
+    if (isNaN(amount) || amount <= 0) {
+      warningAlert("Please enter a valid deposit amount.");
+      return;
+    }
+
+    const walletSelect = document.getElementById('walletSelect');
+    const selectedWalletId = walletSelect.value;
+    const userData = localStorage.getItem('user');
+    if (!userData) return;
+    
+    const user = JSON.parse(userData);
+    const user_id = user.id;
+
+    if (!selectedWalletId) {
+      warningAlert("Please select a wallet.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("wallet_id", selectedWalletId);
+    formData.append("amount", amount);
+    formData.append('user_id', user_id);
+
+    try {
+      const result = await walletPages.post_data(
+        walletPages.deposit.deposit_api, 
+        formData, 
+        { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
+      );
+
+      if (result?.success) {
+        successAlert("Deposit successful!");
+        amountInput.value = '';
+        
+        
+      } else if (result?.error || result?.message) {
+        errorAlert(result.error || result.message);
+      } else {
+        errorAlert("Deposit failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Deposit error:", error);
+      errorAlert("Error processing deposit. Please try again.");
+    }
+  });
+};
 
 walletPages.load_transfer = () => {
   walletPages.transfer = {};
@@ -328,55 +457,3 @@ walletPages.load_contactAdmin = async () => {
 
 
 
-
-
-
-
-
-
-
-
-walletPages.load_login = async () => {
-  walletPages.login = {};
-  walletPages.login.login_api = walletPages.base_api + "login.php";
-
-  const loginForm = document.getElementById("loginForm");
-
-  loginForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const emailValue = document.getElementById('email').value;
-    const passwordValue = document.getElementById('password').value;
-
-    try {
-      const formData = new FormData();
-      formData.append('email', emailValue);
-      formData.append('password', passwordValue);
-
-
-      const result = await walletPages.post_data(
-        walletPages.login.login_api,
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded" 
-          }
-        }
-      );
-      console.log(result)
-
-      if (result && result.user) {
-        console.log("User object:", result.user);
-        successAlert(result.message);
-        localStorage.setItem('user', JSON.stringify(result.user));
-        window.location.href = "dashboard.html";
-      } else {
-        errorAlert(result?.message || "Login failed")
-        // alert(result?.message );
-      } 
-    } catch (error) {
-      console.error("Login error:", error);
-      // alert();
-      errorAlert("An error occurred during login")
-    }
-  });
-};

@@ -113,36 +113,41 @@
     </nav>
   </aside>
 
+  <div id="alert-container" class="card-container sidebar-margin alerts-container">
+
+
+ 
+  </div>
+
   <section class="wallet-page sidebar-margin flex column justify-content align-items">
     <div class="card-container wallet">
       <div class="global-card flex column justify-content">
         <div class="wallet-details flex align-items justify-content">
           <!-- Existing wallet information -->
-          <h2 id="wallet-id">#14723889124</h2>
+          <h2 id="wallet-id"></h2>
           <select class="input-field" name="walletSelect" id="walletSelect">
-            <option value="">Mohammad's wallet</option>
-            <option value="">Hassan's wallet</option>
-            <option value="">Ali's wallet</option>
+            <option value=""></option>
           </select>
         </div>  
-        <h2 id="wallet-balance">Your Current balance is: 500$</h2>
+        <h2 id="wallet-balance"></h2>
         <p>Deposit money in your wallet</p>
         <div class="deposite flex justify-content align-items">
           <input class="input-field" type="number" name="amount" id="amount" placeholder="amount">
-          <button class="button primary-btn deposite-btn">Deposit</button>
+          <button id="deposite-btn" class="button primary-btn deposite-btn">Deposit</button>
         </div>
       </div>
-      <!-- Container for dynamically loaded wallets -->
-      <div id="walletsContainer"></div>
+
     </div>
 
     <div class="row2 flex row justify-content align-items">
       <div class="card-container wallet-create">
         <div class="global-card flex column justify-content">
+          <form id="create-wallet" class="wallet-form flex column justify-content" action="">
           <h2>Create Wallet</h2>
-          <input class="input-field" type="text" name="wallet-name" id="wallet-name" placeholder="Wallet's Name">
-          <input class="input-field" type="number" name="initialAmount" id="initialAmount" placeholder="amount">
-          <button class="button primary-btn">Create</button>
+            <input class="input-field" type="text" name="wallet-name" id="wallet-name" placeholder="Wallet's Name">
+            <input class="input-field" type="number" name="initialAmount" id="wallet-amount" placeholder="amount">
+            <button class="button primary-btn" type="submit">Create</button>
+          </form>
         </div>
       </div>
 
@@ -176,5 +181,12 @@
   <script type="text/javascript">
     walletPages.loadFor("createWallet");
   </script>
+  <script type="text/javascript">
+    walletPages.loadFor("updateWalletDetails");
+  </script>
+  <script type="text/javascript">
+    walletPages.loadFor("deposit");
+  </script>
+
 </body>
 </html>
