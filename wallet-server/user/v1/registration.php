@@ -23,16 +23,14 @@ $user = new User(null, $email, $phone, $hashed_password, $first_name, $last_name
 $userFunctions = new UserFunctions($conn);
 
 if ($userFunctions->insertUser($user)) {
-    // Retrieve the inserted user's ID
     $userDetails = $userFunctions->getUserByEmail($email);
     $response = [
         "message" => "User registered successfully",
         "user" => [
-            "id" => $userDetails->getId(),  // Add the user ID to the response
+            "id" => $userDetails->getId(),  
             "email" => $userDetails->getEmail(),
             "first_name" => $userDetails->getFirstName(),
             "last_name" => $userDetails->getLastName(),
-            // You can add more details if needed
         ]
     ];
     http_response_code(201);
