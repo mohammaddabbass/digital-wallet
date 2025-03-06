@@ -211,7 +211,7 @@
   }
 
   .features {
-    margin: 2rem 1rem;
+    margin: 2rem 0rem;
     grid-template-columns: repeat(1, 1fr);
   }
 

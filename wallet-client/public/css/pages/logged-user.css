@@ -276,16 +276,15 @@
 }
 
 @media screen and (max-width:768px) {
-    .card-container {
-        height: 90vh;
-        flex-direction: column; 
-        gap: 2rem;
-        justify-content: center; 
-    }
+
 
     .profile-container {
         left: 0;
         right: 0;
+        height: 90vh;
+        flex-direction: column; 
+        gap: 2rem;
+        justify-content: center; 
     }
 
     .profile-card {
