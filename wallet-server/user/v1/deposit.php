@@ -29,7 +29,6 @@ $newBalance = $wallet->getBalance() + $amount;
 $updatedAt = date("Y-m-d H:i:s");
 
 if ($walletFunctions->updateBalance($wallet_id, $user_id, $newBalance, $updatedAt)) {
-    // Get fresh wallet data after update
     $updatedWallet = $walletFunctions->getWalletById($wallet_id);
     echo json_encode([
         "success" => true,
