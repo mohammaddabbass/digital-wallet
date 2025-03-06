@@ -225,24 +225,6 @@ walletPages.load_wallets = async () => {
   walletPages.wallet = {};
   walletPages.wallet.wallet_api = walletPages.base_api + "getWallets.php";
 
-  walletPages.wallet.displayWallets = (wallets) => {
-    const container = document.getElementById("walletsContainer");
-    if (!container) {
-      console.error("Wallets container not found");
-      return;
-    }
-    container.innerHTML = ""; 
-    wallets.forEach(wallet => {
-      const walletItem = document.createElement("div");
-      walletItem.classList.add("wallet-item");
-      walletItem.innerHTML = `
-        <h3>Wallet ID: ${wallet.wallet_id}</h3>
-        <p>Name: ${wallet.wallet_name || 'N/A'}</p>
-        <p>Balance: ${wallet.balance || 0}</p>
-      `;
-      container.appendChild(walletItem);
-    });
-  };
 
   const userData = localStorage.getItem('user');
   if (!userData) {
@@ -263,17 +245,77 @@ walletPages.load_wallets = async () => {
   });
   console.log("Wallet API response:", result);
 
-  if (result && result.wallets) {
-    walletPages.wallet.displayWallets(result.wallets);
-  } else if (result && result.error) {
-    alert(result.error);
-  } else {
-    alert("No wallets found.");
-  }
+  // if (result && result.wallets) {
+  //   walletPages.wallet.displayWallets(result.wallets);
+  // } else if (result && result.error) {
+  //   alert(result.error);
+  // } else {
+  //   alert("No wallets found.");
+  // }
+    const wallets = result.wallets;
+
+    const walletSelect = document.getElementById('walletSelect');
+    walletSelect.innerHTML = ''; // Clear any existing options
+  
+    wallets.forEach(wallet => {
+      const option = document.createElement('option');
+      option.value = wallet.wallet_id;         // Use wallet id as value
+      option.textContent = wallet.wallet_name;   // Display the wallet name
+      walletSelect.appendChild(option);
+    });
+
+
+    const walletIds = wallets.map(wallet => wallet.wallet_id);
+  localStorage.setItem('walletIds', JSON.stringify(walletIds));
+
+    // Load the details of the first wallet in the list.
+    if (wallets.length > 0) {
+      walletSelect.value = wallets[0].wallet_id; // Set the default selected wallet
+      document.getElementById('wallet-id').textContent = '#' + wallets[0].wallet_id;
+      document.getElementById('wallet-balance').textContent = `Your Current balance is: ${wallets[0].balance}$`;
+    }
+  
+    // Attach an event listener to update wallet details on change.
+
+  
 };
 
 
-walletPages.load_createWallet = () => {
+walletPages.load_updateWalletDetails = async () => {
+  walletPages.wallet = {};
+  walletPages.wallet.wallet_details_api = walletPages.base_api + "getWalletById.php";
+
+  walletSelect.addEventListener('change', async (event) => {
+    const selectedWalletId = event.target.value;
+
+    const formData = new FormData();
+    formData.append("wallet_id", selectedWalletId);
+  
+    try {
+      const result = await walletPages.post_data(walletPages.wallet.wallet_details_api, formData, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      });
+  
+      if (result && result.wallet) {
+        // Update the wallet card details in the DOM.
+        document.getElementById('wallet-id').textContent = '#' + result.wallet.wallet_id;
+        document.getElementById('wallet-balance').textContent = `Your Current balance is: ${result.wallet.balance}$`;
+      } else if (result && result.error) {
+        alert(result.error);
+      }
+    } catch (error) {
+      console.error("Error fetching wallet details:", error);
+    }
+   
+  });
+
+
+};
+
+
+walletPages.load_createWallet = async () => {
   walletPages.createWallet = {};
   walletPages.createWallet.createWallet_api = walletPages.base_api + "createWallet.php";
 
@@ -298,15 +340,15 @@ walletPages.load_createWallet = () => {
       formData.append('user_id', user_id);
 
       const result = await walletPages.post_data(walletPages.createWallet.createWallet_api, formData, {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded" 
-        }
+        // headers: {
+        //   "Content-Type": "application/x-www-form-urlencoded" 
+        // }
       });
 
-      if(result.success = 1) {
+      if(result.success == 1) {
         console.log("success happens")
         successAlert(result.message);
-      } else if(result.success = -1){
+      } else if(result.success == -1){
         console.log("error happens"),
         console.log(result.message),
         console.log(result),
@@ -316,7 +358,7 @@ walletPages.load_createWallet = () => {
       }
 
     } catch (error) {
-      
+      console.log(error)
     }
   })
 }
