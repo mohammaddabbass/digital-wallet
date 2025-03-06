@@ -76,3 +76,27 @@ window.addEventListener('resize', () => {
         sidebarBurgerMenu.classList.remove('active-s');
     }
 });
+
+
+
+const createQR = document.getElementById("createQR");
+
+        createQR.addEventListener('click', () => {
+            const amount = document.getElementById("QRamount").value;
+
+            if (amount.trim() !== "") {
+                document.getElementById("qrcode").innerHTML = ""; // Clear previous QR code
+                
+                let qrcode = new QRCode(document.getElementById("qrcode"), {
+                    text: `Amount: ${amount}`, // Encode only the amount
+                    width: 200,
+                    height: 200
+                });
+
+            } else {
+                document.getElementById("QRError").innerText = "Please enter an amount!";
+                setTimeout(() => {
+                    document.getElementById("QRError").innerText = "";
+                }, 2000);
+            }
+        });

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/main.css">
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <title>Dashboard</title>
 </head>
 <body>
@@ -49,19 +49,20 @@
                 <form id="qrForm" class="qr-form flex column justify-content align-items">
                     <input class="input-field" type="number" name="amount" placeholder="Amount" step="0.01" required>
                     <input class="input-field" type="text" name="recipient" placeholder="Recipient" required>
-                    <button class="button primary-btn" type="submit">Generate QR</button>
+                    <button id="generateCode" class="button primary-btn" type="submit">Generate QR</button>
                 </form>
             </div>
         </div>
 
 
-        <div id="qrContainer">
-
-        </div>
+        <p id="QRError"></p>
+    
+        <div id="qrCode"></div>
 
       </section>
 
       <script src="../public/js/main.js"></script>
+      <script src="../public/js/chart.js"></script>
 
 </body>
 </html>
