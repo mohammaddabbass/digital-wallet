@@ -48,7 +48,7 @@ Below is the ER diagram representing the database structure of the system:
 
 ```sh
 git clone https://github.com/mohammaddabbass/digital-wallet.git
-cd wallet-management
+cd digital-wallet
 ```
 
 
