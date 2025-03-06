@@ -18,7 +18,7 @@ Below is the ER diagram representing the database structure of the system:
 
 - **IP Address:** `51.44.170.152`
 - **DNS:** `ec2-51-44-170-152.eu-west-3.compute.amazonaws.com`
-- **GitHub Pages URL:** [GitHub Pages Deployment](https://yourgithubusername.github.io/repository-name/)
+- **GitHub Pages URL:** [SwiftSafe](https://mohammaddabbass.github.io/digital-wallet/wallet-client/pages/main.html)
 - **local API Base URL:** `http://localhost/wallet-project/wallet-server/user/v1/`
 - **deployed API Base URL:** `http://51.44.170.152/user/v1/`
 
@@ -55,6 +55,6 @@ cd wallet-management
 
 ## Contributors
 
-- **![Mohammad Abbass](https://github.com/mohammaddabbass)** - Lead Developer
+- **[Mohammad Abbass](https://github.com/mohammaddabbass)** - Lead Developer
 
 
