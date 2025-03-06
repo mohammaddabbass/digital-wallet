@@ -23,8 +23,20 @@ $user = new User(null, $email, $phone, $hashed_password, $first_name, $last_name
 $userFunctions = new UserFunctions($conn);
 
 if ($userFunctions->insertUser($user)) {
+    // Retrieve the inserted user's ID
+    $userDetails = $userFunctions->getUserByEmail($email);
+    $response = [
+        "message" => "User registered successfully",
+        "user" => [
+            "id" => $userDetails->getId(),  // Add the user ID to the response
+            "email" => $userDetails->getEmail(),
+            "first_name" => $userDetails->getFirstName(),
+            "last_name" => $userDetails->getLastName(),
+            // You can add more details if needed
+        ]
+    ];
     http_response_code(201);
-    echo json_encode(["message" => "User registered successfully"]);
+    echo json_encode($response);
 } else {
     http_response_code(500);
     echo json_encode(["message" => "Failed to register user"]);
